@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="de-AT">
+<head>
+<meta charset="utf-8">
+  <!-- Demoseite. Darf nicht in Suchmaschinen landen, sonst konkurriert sie mit der
+       echten Seite des Betriebs. Beim Livegang des Kunden diese Zeile entfernen. -->
+  <meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gasthof Dorrer | Steirisches Wirtshaus mit Eichenbar in Graz</title>
+<meta name="description" content="Gasthof Dorrer in der Steinbergstraße 41, 8052 Graz. Seit 1898 in Familienhand, steirische Küche, acht Meter lange Eichenbar. Freitag bis Dienstag geöffnet.">
+<meta name="theme-color" content="#6d1f28">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_AT">
+<meta property="og:title" content="Gasthof Dorrer | Steirisches Wirtshaus mit Eichenbar in Graz">
+<meta property="og:description" content="Seit 1898 in Familienhand, fünfte Generation. Steirische Küche, Backhendl am Wochenende, acht Meter lange Eichenbar mit 20 Weinfässern.">
+<meta property="og:image" content="assets/img/eichenbar.webp">
+<meta property="og:site_name" content="Gasthof Dorrer">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%236d1f28'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' font-weight='700' fill='%23f6f1e8' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
+<style>
+/* Schriften liegen lokal in assets/fonts, kein Aufruf an einen fremden Server. */
+@font-face{font-family:'Bitter';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/bitter-600.woff2') format('woff2')}
+@font-face{font-family:'Bitter';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/bitter-700.woff2') format('woff2')}
+@font-face{font-family:'Source Sans 3';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/source-sans-3-400.woff2') format('woff2')}
+@font-face{font-family:'Source Sans 3';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/source-sans-3-600.woff2') format('woff2')}
+
+/* Alle Farben, Abstände und Schriften an einer Stelle. */
+:root{
+  --farbe-primaer:#6d1f28;
+  --farbe-akzent:#b98a4b;
+  --farbe-text:#241a17;
+  --farbe-flaeche:#f6f1e8;
+  --farbe-flaeche-2:#ede4d3;
+  --farbe-dunkel:#2e211c;
+  --farbe-linie:#d8ccb6;
+  --farbe-gedaempft:#5d4c44;
+  --abstand-s:.6rem;
+  --abstand-m:1.4rem;
+  --abstand-l:3rem;
+  --abstand-xl:5.5rem;
+  --schrift-titel:'Bitter',Georgia,'Times New Roman',serif;
+  --schrift-text:'Source Sans 3',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  /* Der eine typografische Höhepunkt der Seite. */
+  --schrift-riesig:clamp(2.9rem,8.5vw,8rem);
+  --breite:1180px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+section[id]{scroll-margin-top:5.5rem}
+body{
+  margin:0;
+  background:var(--farbe-flaeche);
+  color:var(--farbe-text);
+  font-family:var(--schrift-text);
+  font-size:1.0625rem;
+  line-height:1.65;
+  /* clip statt hidden, sonst wird body zum Scrollcontainer und position:sticky bricht */
+  overflow-x:clip;
+}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3{font-family:var(--schrift-titel);font-weight:700;line-height:1.15;margin:0 0 var(--abstand-m);letter-spacing:-.01em}
+h1{font-size:var(--schrift-riesig);line-height:.95;letter-spacing:-.025em}
+h2{font-size:clamp(1.6rem,4vw,2.35rem)}
+h3{font-size:1.2rem;font-weight:600}
+p{margin:0 0 var(--abstand-m)}
+a{color:var(--farbe-primaer)}
+:focus-visible{outline:3px solid var(--farbe-primaer);outline-offset:3px;border-radius:2px}
+.rand{width:100%;max-width:var(--breite);margin:0 auto;padding:0 1.25rem}
+.augenmass{max-width:62ch}
+.klein{font-size:.95rem;color:var(--farbe-gedaempft)}
+.nurlesbar{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Kopf: Logo mittig, Links links und rechts; bleibt beim Scrollen gleich */
+.kopf{border-bottom:1px solid var(--farbe-linie);background:var(--farbe-flaeche)}
+.kopf-innen{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.3rem 1rem;padding-top:.55rem;padding-bottom:.55rem}
+.wortmarke{order:0;flex:0 0 100%;display:flex;justify-content:center;line-height:0;text-decoration:none}
+.wortmarke img{height:50px;width:auto;display:block}
+.hauptnav{display:flex}
+.nav-a{order:1}
+.nav-b{order:2}
+.hauptnav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.2rem 1.1rem;margin:0;padding:0}
+.hauptnav a{position:relative;display:inline-flex;align-items:center;min-height:44px;font-size:.95rem;text-decoration:none;color:var(--farbe-text);white-space:nowrap;transition:color .15s ease}
+.hauptnav a::after{content:'';position:absolute;left:0;right:0;top:50%;margin-top:.72em;height:2px;background:var(--farbe-akzent);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform .22s ease}
+.hauptnav a:hover,.hauptnav a:focus-visible{color:var(--farbe-primaer)}
+.hauptnav a:hover::after,.hauptnav a:focus-visible::after,.hauptnav a.aktiv::after{transform:scaleX(1)}
+.hauptnav a.aktiv{color:var(--farbe-primaer);font-weight:600}
+.kopf .tel-knopf{display:none}
+
+@media (min-width:860px){
+  .kopf{position:sticky;top:0;z-index:50}
+  .kopf-innen{flex-wrap:nowrap;justify-content:center;gap:1.6rem;padding-top:.55rem;padding-bottom:.55rem}
+  .nav-a{order:0;flex:0 0 auto;justify-content:flex-end}
+  .nav-a ul{flex-wrap:nowrap}
+  .wortmarke{order:0;flex:0 0 auto}
+  .wortmarke img{height:62px}
+  .nav-b{order:0;flex:0 0 auto;justify-content:flex-start}
+  .nav-b ul{flex-wrap:nowrap}
+}
+
+/* Knöpfe */
+.knopf{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:48px;padding:.7rem 1.5rem;border-radius:3px;border:1px solid transparent;
+  font-family:var(--schrift-text);font-size:1rem;font-weight:600;
+  text-decoration:none;cursor:pointer;
+}
+.knopf-voll{background:var(--farbe-primaer);color:#fff8f0}
+.knopf-voll:hover{background:#571820}
+.knopf-linie{background:transparent;color:var(--farbe-primaer);border-color:var(--farbe-linie)}
+.knopf-linie:hover{border-color:var(--farbe-primaer)}
+
+/* Hero */
+.hero{border-bottom:1px solid var(--farbe-linie)}
+.hero-raster{display:grid;gap:0}
+.hero-text{padding:var(--abstand-l) 1.25rem}
+.hero-text .augenmass{max-width:34ch}
+.hero-vor{
+  font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--farbe-gedaempft);margin:0 0 .9rem;
+}
+.hero p.leit{font-size:1.15rem;max-width:36ch}
+.hero-bild img{width:100%;height:100%;object-fit:cover;min-height:280px}
+
+.hero-knoepfe{display:flex;flex-wrap:wrap;gap:.7rem}
+
+/* Sektionen */
+section{padding:var(--abstand-xl) 0}
+.sektion-kopf{margin-bottom:var(--abstand-l)}
+.sektion-kopf p{max-width:58ch;margin-bottom:0}
+.marke{
+  font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--farbe-primaer);margin:0 0 .7rem;font-weight:600;
+}
+.dunkel{background:var(--farbe-dunkel);color:#f0e7d9}
+.dunkel h2,.dunkel h3{color:#fff}
+.dunkel .marke{color:var(--farbe-akzent)}
+.dunkel a{color:var(--farbe-akzent)}
+.dunkel :focus-visible{outline-color:var(--farbe-akzent)}
+.gedeckt{background:var(--farbe-flaeche-2)}
+
+/* Vorstellung */
+.zweispalt{display:grid;gap:var(--abstand-l);align-items:start}
+figure{margin:0}
+figcaption{font-size:.9rem;color:var(--farbe-gedaempft);padding-top:.5rem}
+.zitat{
+  font-family:var(--schrift-titel);font-weight:600;font-size:1.3rem;line-height:1.4;
+  border-left:4px solid var(--farbe-akzent);padding-left:1.1rem;margin:var(--abstand-m) 0 0;
+}
+.zitat cite{display:block;font-family:var(--schrift-text);font-weight:400;font-size:.9rem;font-style:normal;color:var(--farbe-gedaempft);margin-top:.5rem}
+
+/* Eichenbar */
+.merkmale{list-style:none;margin:var(--abstand-m) 0 0;padding:0;display:grid;gap:1.4rem}
+.merkmale h3{margin-bottom:.25rem}
+.merkmale p{margin:0}
+.bilderpaar{display:grid;gap:1rem;margin-top:var(--abstand-l)}
+
+/* Küche */
+.karte-gruppe{border-top:1px solid var(--farbe-linie);padding-top:1.2rem;margin-bottom:2rem}
+.karte-gruppe h3{color:var(--farbe-primaer);margin-bottom:.7rem}
+.karte-gruppe ul{list-style:none;margin:0;padding:0}
+.karte-gruppe li{padding:.35rem 0}
+.speisen-raster{display:grid;gap:2rem}
+.teller{display:grid;gap:.8rem;grid-template-columns:repeat(2,1fr);margin-top:var(--abstand-l)}
+.teller figcaption{padding-top:.4rem;font-size:.85rem}
+.listen-paar{display:grid;gap:var(--abstand-l);margin-top:var(--abstand-l)}
+.sachliste{list-style:none;margin:0;padding:0}
+.sachliste li{display:flex;justify-content:space-between;gap:1rem;padding:.5rem 0;border-bottom:1px solid var(--farbe-linie)}
+.sachliste li span:last-child{text-align:right;color:var(--farbe-gedaempft)}
+
+  content:'';position:absolute;left:-7px;top:.55rem;
+  width:12px;height:12px;border-radius:50%;background:var(--farbe-akzent);
+}
+.zeitleiste li:last-child{padding-bottom:0}
+.jahr{font-family:var(--schrift-titel);font-weight:700;font-size:1.5rem;color:var(--farbe-primaer);display:block;line-height:1.1;margin-bottom:.35rem}
+.zeitleiste p{margin:0}
+
+/* Öffnungszeiten */
+.zeittabelle{width:100%;border-collapse:collapse;text-align:left}
+.zeittabelle caption{text-align:left;padding-bottom:.8rem;color:var(--farbe-gedaempft);font-size:.95rem}
+.zeittabelle th,.zeittabelle td{padding:.7rem .5rem;border-bottom:1px solid var(--farbe-linie);vertical-align:top}
+.zeittabelle thead th{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--farbe-gedaempft);font-weight:600}
+.zeittabelle th[scope=row]{font-weight:600;white-space:nowrap}
+.ruhe{color:var(--farbe-gedaempft)}
+
+/* Formular */
+.formular{display:grid;gap:1.1rem}
+.feld{display:flex;flex-direction:column}
+.feld label{font-weight:600;font-size:.95rem;margin-bottom:.3rem}
+.feld input,.feld select,.feld textarea{
+  font-family:var(--schrift-text);font-size:1rem;color:var(--farbe-text);
+  background:#fff;border:1px solid var(--farbe-linie);border-radius:3px;
+  padding:.65rem .7rem;min-height:48px;width:100%;
+}
+.feld textarea{min-height:96px;resize:vertical}
+.feld input:focus-visible,.feld select:focus-visible,.feld textarea:focus-visible{border-color:var(--farbe-primaer)}
+.fehler{color:#8c1f14;font-size:.9rem;min-height:0;margin-top:.3rem}
+.feld.ungueltig input,.feld.ungueltig select{border-color:#8c1f14}
+.formular-fuss{margin-top:.4rem}
+.bestaetigung{
+  border:1px solid var(--farbe-akzent);background:#fff;
+  padding:1rem 1.1rem;border-radius:3px;margin-top:1.2rem;
+}
+.bestaetigung[hidden]{display:none}
+
+/* Reservierungs-Widget */
+.res-karte{background:var(--farbe-dunkel);color:#f0e7d9;border-radius:14px;overflow:hidden;display:grid;gap:0}
+.res-info{padding:clamp(1.6rem,3vw,2.6rem)}
+.res-info h2{color:#fff;margin-bottom:.6rem}
+.res-info h2 em{color:var(--farbe-akzent);font-style:italic}
+.res-info .marke{color:var(--farbe-akzent)}
+.res-info>p{color:rgba(240,231,217,.82);max-width:36ch}
+.res-schritte{list-style:none;margin:1.5rem 0 0;padding:0;display:grid;gap:1rem}
+.res-schritte li{display:flex;align-items:center;gap:.9rem;color:#f0e7d9;font-size:1.02rem}
+.res-schritte li span{flex:none;width:2rem;height:2rem;border-radius:50%;border:1px solid rgba(255,255,255,.32);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:.9rem;color:var(--farbe-akzent)}
+.res-tel{margin:1.6rem 0 0;color:rgba(240,231,217,.8)}
+.res-tel a{color:#fff;font-weight:600;text-decoration:none}
+.res-tel a:hover{text-decoration:underline}
+.res-form{background:var(--farbe-flaeche);color:var(--farbe-text);padding:clamp(1.5rem,3vw,2.3rem)}
+.res-grid{display:grid;gap:1rem}
+.res-form .feld{display:flex;flex-direction:column;min-width:0}
+.res-form label{font-weight:600;font-size:.92rem;margin-bottom:.3rem}
+.res-form input,.res-form select,.res-form textarea{font-family:var(--schrift-text);font-size:1rem;color:var(--farbe-text);background:#fff;border:1px solid var(--farbe-linie);border-radius:8px;padding:.6rem .7rem;min-height:46px;width:100%}
+.res-form textarea{min-height:80px;resize:vertical}
+.res-form input:focus-visible,.res-form select:focus-visible,.res-form textarea:focus-visible{border-color:var(--farbe-primaer);outline:none}
+.res-form .feld.ungueltig input,.res-form .feld.ungueltig select{border-color:#c0392b;box-shadow:0 0 0 1px #c0392b}
+.res-form .fehler{color:#8c1f14;font-size:.88rem;margin:.25rem 0 0}
+.res-zustimmung{display:flex;gap:.6rem;align-items:flex-start;margin:1.1rem 0 0;font-size:.9rem;color:var(--farbe-gedaempft);cursor:pointer}
+.res-zustimmung input{margin-top:.15rem;flex:none;width:1.1rem;height:1.1rem;accent-color:var(--farbe-primaer)}
+.res-zustimmung.ungueltig{color:#8c1f14}
+.res-absenden{width:100%;margin-top:1.1rem;border-radius:8px}
+@media (min-width:520px){.res-grid{grid-template-columns:1fr 1fr;gap:1rem 1.2rem}.res-grid .feld-breit{grid-column:1 / -1}}
+@media (min-width:860px){.res-karte{grid-template-columns:.92fr 1.08fr}}
+
+/* Kontakt */
+address{font-style:normal}
+.kontakt-raster{display:grid;gap:var(--abstand-l)}
+.kontakt-raster a{color:var(--farbe-primaer)}
+.karte{position:relative;border:1px solid var(--farbe-linie);border-radius:3px;overflow:hidden;min-height:22rem;background:var(--farbe-flaeche-2)}
+.karte iframe{width:100%;height:100%;min-height:22rem;border:0;display:block}
+.karte-cover{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:1.5rem;background:var(--farbe-flaeche-2)}
+.karte-cover-inner{max-width:24rem}
+.karte-cover svg{width:40px;height:40px;color:var(--farbe-primaer);margin:0 auto .7rem;display:block}
+.karte-cover p{margin:0 0 .5rem}
+.karte-cover .knopf{margin:.5rem 0}
+.datenzeile{display:grid;gap:.15rem;padding:.75rem 0;border-bottom:1px solid var(--farbe-linie)}
+.datenzeile dt{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--farbe-gedaempft)}
+.datenzeile dd{margin:0;font-size:1.05rem}
+
+/* Fuß */
+.fuss{background:var(--farbe-dunkel);color:#cdbfae;padding:var(--abstand-l) 0;font-size:.95rem}
+.fuss a{color:#e8c489}
+.fuss-raster{display:grid;gap:var(--abstand-m)}
+.fuss strong{color:#fff;font-family:var(--schrift-titel);font-size:1.05rem}
+
+/* Mobile Aktionsleiste */
+.mobilleiste{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;
+  display:grid;grid-template-columns:1fr 1fr;
+  background:var(--farbe-flaeche);border-top:1px solid var(--farbe-linie);
+}
+.mobilleiste a{
+  display:flex;align-items:center;justify-content:center;
+  min-height:56px;font-weight:600;font-size:1rem;text-decoration:none;
+}
+.mobilleiste a:first-child{color:var(--farbe-primaer)}
+.mobilleiste a:last-child{background:var(--farbe-primaer);color:#fff8f0}
+body{padding-bottom:56px}
+
+@media (min-width:640px){
+  .teller{grid-template-columns:repeat(4,1fr)}
+  .bilderpaar{grid-template-columns:1fr 1fr}
+  .merkmale{grid-template-columns:1fr 1fr;gap:1.6rem 2.4rem}
+  .datenzeile{grid-template-columns:9rem 1fr;gap:1rem;align-items:baseline}
+  .datenzeile dt{padding-top:.2rem}
+}
+@media (min-width:900px){
+  body{padding-bottom:0}
+  .mobilleiste{display:none}
+  .kopf{position:sticky;top:0;z-index:50}
+  .hero-text{padding-top:var(--abstand-xl)}
+  .zweispalt{grid-template-columns:1.05fr .95fr;gap:var(--abstand-xl)}
+  .speisen-raster{grid-template-columns:1fr 1fr;gap:0 var(--abstand-xl)}
+  .listen-paar{grid-template-columns:1fr 1fr;gap:var(--abstand-xl)}
+  .kontakt-raster{grid-template-columns:1.1fr .9fr;gap:var(--abstand-xl)}
+  .formular{grid-template-columns:1fr 1fr;gap:1.1rem 1.4rem}
+  .feld-breit{grid-column:1 / -1}
+  .res-raster{grid-template-columns:1.45fr .55fr}
+  /* Bilder, die neben einer langen Textspalte stehen, füllen deren Höhe aus. */
+  .fuellbild{height:100%;display:flex;flex-direction:column}
+  .fuellbild img{height:100%;object-fit:cover;min-height:22rem}
+  .fuss-raster{grid-template-columns:1.4fr 1fr 1fr}
+}
+@media (min-width:1200px){
+  :root{--abstand-xl:7rem}
+}
+
+/* Signature eins: die Bar randlos, mit der Maßangabe als Bemaßungslinie */
+.hero{position:relative;background:var(--farbe-dunkel);color:#f6f1e8;padding:0;
+      min-height:88vh;display:flex;align-items:flex-end;border-bottom:0}
+.hero-bild{position:absolute;inset:0;margin:0}
+.hero-bild img{width:100%;height:100%;object-fit:cover;min-height:0}
+.hero-bild::after{content:'';position:absolute;inset:0;background:rgba(20,12,10,.6)}
+.hero-text{position:relative;z-index:1;width:100%;padding:var(--abstand-l) 0 0;display:block}
+.hero-text .augenmass,.hero p.leit{max-width:40ch}
+.hero .hero-vor{color:#e8c489}
+.hero h1{color:#fff}
+.hero p.leit{color:#e6dccd;font-size:1.2rem}
+.knopf-hell{background:transparent;color:#f6f1e8;border-color:rgba(246,241,232,.5)}
+.knopf-hell:hover{border-color:#f6f1e8}
+.bemassung{
+  position:relative;z-index:1;margin:var(--abstand-l) 0 0;padding:0 0 2.2rem;
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:.9rem;
+  color:#e6dccd;
+}
+.bemassung::before,.bemassung::after{content:'';width:1px;height:1.5rem;background:var(--farbe-akzent)}
+.bemassung .linie{height:1px;background:var(--farbe-akzent);position:relative}
+.bemassung .mass{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  background:var(--farbe-dunkel);padding:0 1rem;white-space:nowrap;
+  font-family:var(--schrift-titel);font-weight:700;font-size:clamp(1rem,2.2vw,1.5rem);
+  color:var(--farbe-akzent);letter-spacing:.02em;
+}
+
+/* Signature zwei: fünf Generationen als waagrechte Zeitleiste */
+.generationen{list-style:none;margin:0;padding:0;display:grid;gap:var(--abstand-l)}
+.generationen li{border-top:2px solid var(--farbe-akzent);padding-top:1.1rem}
+.generationen .jahr{display:block;font-family:var(--schrift-titel);font-weight:700;font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--farbe-primaer);line-height:1;margin-bottom:.6rem}
+.generationen img{width:100%;aspect-ratio:3 / 2;object-fit:cover;margin-bottom:.9rem}
+.generationen p{margin:0;font-size:.98rem}
+@media (min-width:640px){.generationen{grid-template-columns:repeat(5,1fr);gap:1.6rem}}
+
+/* ------------------------------------------------------------------
+   Ausbau: Verkaufswerkzeug und Wow-Hebel
+   ------------------------------------------------------------------ */
+/* Randloses Band über die volle Fensterbreite */
+.band{position:relative;overflow:hidden;background:#111;padding:0}
+.band img{width:100%;height:74vh;min-height:20rem;object-fit:cover}
+.band::after{content:'';position:absolute;inset:0;background:rgba(12,12,12,.55)}
+.band-inhalt{position:absolute;inset:0;z-index:1;display:flex;align-items:flex-end}
+.band-inhalt .rand{padding-bottom:3rem}
+.band-inhalt p{color:#fff;font-family:var(--schrift-titel);font-size:clamp(1.4rem,3.4vw,2.6rem);line-height:1.25;max-width:20ch;margin:0}
+.band-inhalt .marke{color:#fff}
+
+/* Sammelkorrektur, zentral angehaengt. */
+
+/* Handy-Feinschliff, zentral angehaengt. */
+h1,h2,h3{overflow-wrap:break-word}
+@media (max-width:639px){
+  a[href^="tel:"]{display:inline-flex;align-items:center;min-height:44px}
+  a[href^="mailto:"]{display:inline-flex;align-items:center;min-height:44px}
+  .wortmarke span{font-size:.72rem}
+  table td:last-child{white-space:normal}
+}
+
+/* Handy-Feinschliff, zweiter Durchgang. */
+@media (max-width:639px){
+  .preise td:last-child,.preise th:last-child{white-space:normal}
+  a[href*="maps"],a[href*="openstreetmap"],a[href*="google.com/maps"]{display:inline-flex;align-items:center;min-height:44px}
+}
+.hero-foto>.rand,.hero>.rand{min-width:0;max-width:100%}
+.hero-foto{min-width:0}
+
+/* Sehr kleine Geraete unter 360 Pixel: Ueberschrift verkleinern, sonst laeuft
+   ein langer Betriebsname ueber den Rand. */
+@media (max-width:359px){
+  h1{font-size:clamp(1.75rem,8.6vw,2.2rem)}
+}
+
+/* Handy-Feinschliff, dritter Durchgang: Tippziele und Mindestschriftgroesse. */
+@media (max-width:639px){
+  .bereiche a,.wege a,.kachel a{display:inline-flex;align-items:center;min-height:44px}
+  .marke,.hero-vor,.ort,.vorzeile,.kicker,.klein{font-size:.75rem}
+}
+
+/* Handy-Feinschliff, vierter Durchgang.
+   Die Navigation scrollt am Handy waagrecht. Zentriert wuerde sie links
+   abgeschnitten und der erste Punkt waere nicht erreichbar. */
+</style>
+</head>
+<body>
+
+<header class="kopf">
+  <div class="rand kopf-innen">
+    <nav class="hauptnav nav-a" aria-label="Unterseiten">
+      <ul>
+        <li><a href="chef-table.html">Chef's Table</a></li>
+        <li><a href="biertanks.html">Biertanks</a></li>
+      </ul>
+    </nav>
+    <a class="wortmarke" href="#oben" aria-label="Gasthof Dorrer, zur Startseite"><img src="assets/img/logo-dorrer.png" alt="Gasthof Dorrer" width="770" height="470"></a>
+    <nav class="hauptnav nav-b" aria-label="Bereiche">
+      <ul>
+        <li><a href="#eichenbar">Eichenbar</a></li>
+        <li><a href="#kueche">Küche</a></li>
+        <li><a href="#zeiten">Zeiten</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+    <a class="tel-knopf" href="tel:+43316582647"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M6.6 3.5c.5 0 .9.3 1 .8l.8 3a1 1 0 0 1-.28 1L6.5 9.6a12 12 0 0 0 4.9 4.9l1.3-1.6a1 1 0 0 1 1-.28l3 .8c.5.1.8.5.8 1v2.2a2.4 2.4 0 0 1-2.6 2.4A15.6 15.6 0 0 1 4.2 6.1 2.4 2.4 0 0 1 6.6 3.5z" fill="currentColor"/></svg><span>+43 316 582647</span></a>
+  </div>
+</header>
+
+<main id="oben">
+
+  <section class="hero" aria-labelledby="titel">
+    <figure class="hero-bild">
+      <img src="assets/img/eichenbar.webp" width="1900" height="1266" loading="eager" fetchpriority="high"
+           alt="Die acht Meter lange Bar aus Eichenholz mit Flaschenregal und Kupferlampen darüber">
+    </figure>
+    <div class="hero-text">
+      <div class="rand">
+        <p class="hero-vor">Acht Meter Eichenholz, zwanzig Weinfässer</p>
+        <h1 id="titel">Gasthof Dorrer</h1>
+        <p class="leit">Wirtshaus am Stadtrand von Graz, geführt von Martin Dorrer. Steirische Küche, und seit dem Umbau 2023 eine Bar, für die man Platz braucht.</p>
+        <div class="hero-knoepfe">
+          <a class="knopf knopf-voll" href="#kontakt">Kontakt</a>
+          <a class="knopf knopf-hell" href="tel:+43316582647">+43 316 582647</a>
+        </div>
+        <p class="bemassung" aria-hidden="true">
+          <span class="linie"><span class="mass">8 Meter</span></span>
+        </p>
+        <p class="nurlesbar">Die Bar misst acht Meter in der Länge.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="haus" aria-labelledby="hausTitel">
+    <div class="rand zweispalt">
+      <div>
+        <p class="marke">Das Haus</p>
+        <h2 id="hausTitel">Fünf Generationen an der Steinbergstraße</h2>
+        <p>Der Gasthof liegt in ländlicher Umgebung am Stadtrand von Graz. Eröffnet wurde er am 31. Mai 1898 von Martin und Theresia Gollupp, damals noch als Gasthaus Gollupp. Seit 1959 trägt er den Namen Dorrer.</p>
+        <p>Martin Dorrer hat Koch und Restaurantfachmann gelernt und unter anderem im haubengekrönten Casino Restaurant am Zuger See in der Schweiz und in einem Tiroler Fünfsternehaus gearbeitet. 2004 hat er den Familienbetrieb übernommen und steht seither selbst am Herd.</p>
+        <blockquote class="zitat">
+          Denn das Glück des Lebens, ist das Glück des Gebens.
+          <cite>Martin Dorrer, Februar 2023</cite>
+        </blockquote>
+      </div>
+      <figure>
+        <img src="assets/img/martin-dorrer.webp" width="1100" height="733" loading="lazy"
+             alt="Martin Dorrer und eine Mitarbeiterin stehen vor dem Flaschenregal der Eichenbar">
+        <figcaption>Martin Dorrer führt das Haus seit 2004.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="eichenbar" class="gedeckt" aria-labelledby="barTitel">
+    <div class="rand">
+      <div class="sektion-kopf augenmass">
+        <p class="marke">Umbau 2023</p>
+        <h2 id="barTitel">Die Eichenbar</h2>
+        <p>Geplant ab 2019, umgesetzt im Frühjahr 2023. Aus jeder Generation ist ein Stück im Raum geblieben.</p>
+      </div>
+      <ul class="merkmale">
+        <li>
+          <h3>Acht Meter Eichenholz</h3>
+          <p>Die Bar misst acht Meter in der Länge und ist von 20 Weinfässern umschmückt. Sie steht für die fünfte Generation.</p>
+        </li>
+        <li>
+          <h3>Sitzbänke aus den 1950ern</h3>
+          <p>Die Bänke stammen aus der Zeit, als die Großmutter den Kochlöffel führte. Aufbereitet, dazu neue massive Eichentische.</p>
+        </li>
+        <li>
+          <h3>Vertäfelung vom Großvater</h3>
+          <p>Das Holz an den Wänden hat rund 40 Jahre in der Scheune getrocknet. Gebürstet, naturbelassen, sonst unverändert.</p>
+        </li>
+        <li>
+          <h3>Der Stammtisch</h3>
+          <p>Stammtisch und Sitzecke sind wie eh und je geblieben. Sie stehen für die Generation der Eltern.</p>
+        </li>
+      </ul>
+      <div class="bilderpaar">
+        <figure>
+          <img src="assets/img/weinfaesser.webp" width="1024" height="683" loading="lazy"
+               alt="Regal aus Weinfässern neben Stehtischen im Gastraum">
+        </figure>
+        <figure>
+          <img src="assets/img/gaststube.webp" width="1100" height="733" loading="lazy"
+               alt="Gedeckte Tische in der Gaststube mit Holzvertäfelung und Fenstern zum Garten">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="kueche" aria-labelledby="kuecheTitel">
+    <div class="rand">
+      <div class="sektion-kopf augenmass">
+        <p class="marke">Auszug aus der Speisekarte</p>
+        <h2 id="kuecheTitel">Küche</h2>
+        <p>Steirisch und saisonal, dazu Fischklassiker und Gegrilltes. Die vollständige Karte liegt im Haus auf.</p>
+      </div>
+      <div class="speisen-raster">
+        <div>
+          <div class="karte-gruppe">
+            <h3>Fischklassiker</h3>
+            <ul>
+              <li>Goldbrassenfilet an Tomatennudeln mit Sardellen und Rucola</li>
+              <li>Gegrillte Calamari vom Rost mit Knoblauchbutter, Petersilienkartoffeln und Hausbrot</li>
+            </ul>
+          </div>
+          <div class="karte-gruppe">
+            <h3>Vegetarische Gerichte</h3>
+            <ul>
+              <li>Gnocchi in Tomatensauce mit Rucola und gegrilltem Schafskäse</li>
+              <li>Teigtaschen gefüllt mit Ricotta und Rucola in brauner Butter und buntem Gemüse</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="karte-gruppe">
+            <h3>Aus der vitalen Küche</h3>
+            <ul>
+              <li>Hühnerbrustwürfel vom Grill auf buntem Blattsalat mit American Dressing, Toast und gegrillten Süßkartoffeln</li>
+              <li>Backhendlsalat, Hühnerbruststreifen auf buntem Blattsalat mit Kernöl</li>
+            </ul>
+          </div>
+          <div class="karte-gruppe">
+            <h3>Vom Grill</h3>
+            <ul>
+              <li>Schweinskotelett, Hühnerbrust und Schweinefilet mit Buttergemüse und Farmer Pommes</li>
+              <li>Beef Burger mit Speck und Cheddar, BBQ Sauce und Pommes frites</li>
+            </ul>
+          </div>
+          <div class="karte-gruppe">
+            <h3>Hausgemachte Desserts</h3>
+            <ul>
+              <li>Wechselnd, die Auswahl steht an der Tafel.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="teller">
+        <figure>
+          <img src="assets/img/backhendl.webp" width="760" height="507" loading="lazy"
+               alt="Panierte Hühnerteile mit grünen Bohnen und Risotto auf weißem Teller">
+          <figcaption>Backhendl, Samstag und Sonntag</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img/burger.webp" width="760" height="507" loading="lazy"
+               alt="Burger mit Cheddar und Salat, dazu Pommes frites im Drahtkorb">
+          <figcaption>Burger, Montag</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img/wild.webp" width="760" height="507" loading="lazy"
+               alt="Rosa gebratene Fleischmedaillons mit Püree und Süßkartoffelspalten">
+          <figcaption>Wild, September bis November</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img/gnocchi.webp" width="760" height="507" loading="lazy"
+               alt="Gnocchi mit Kirschtomaten und Kräutern in tiefem weißem Teller">
+          <figcaption>Gnocchi, vegetarisch</figcaption>
+        </figure>
+      </div>
+
+      <div class="listen-paar">
+        <div>
+          <h3>Kochen nach der Jahreszeit</h3>
+          <ul class="sachliste">
+            <li><span>März und April</span><span>Bärlauch und Frühlingsgemüse</span></li>
+            <li><span>Mai und Juni</span><span>Spargel</span></li>
+            <li><span>Juni und Juli</span><span>Eierschwammerl und Pilze</span></li>
+            <li><span>August</span><span>Alles vom Grill</span></li>
+            <li><span>September bis November</span><span>Kürbis und Wild</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Steirische Partnerbetriebe</h3>
+          <ul class="sachliste">
+            <li><span>Geflügel</span><span>Draxler</span></li>
+            <li><span>Fleisch</span><span>Haring</span></li>
+            <li><span>Gemüse</span><span>Sihorsch</span></li>
+            <li><span>Eier</span><span>Falzberger</span></li>
+            <li><span>Kaffee</span><span>Musetti</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="geschichte" class="gedeckt" aria-labelledby="geschichteTitel">
+    <div class="rand">
+      <div class="sektion-kopf augenmass">
+        <p class="marke">Seit 1898</p>
+        <h2 id="geschichteTitel">Fünf Generationen</h2>
+        <p>Aus dem Gasthaus Gollupp wurde 1959 der Gasthof Dorrer. Die sechste Generation wächst bereits heran.</p>
+      </div>
+      <ol class="generationen">
+        <li>
+          <img src="assets/img/hof-historisch.webp" width="760" height="507" loading="lazy"
+               alt="Schwarzweißaufnahme des Gasthauses mit Nebengebäuden vor bewaldeten Hügeln">
+          <span class="jahr">1898</span>
+          <p>Martin und Theresia Gollupp eröffnen am 31. Mai das Gasthaus Gollupp. Dahinter stehen eine Ziegelbrennerei und eine Schmiede.</p>
+        </li>
+        <li>
+          <img src="assets/img/gasthaus-gollupp.webp" width="760" height="507" loading="lazy"
+               alt="Historische Aufnahme: Gruppe von Männern vor dem Gasthaus mit der Aufschrift Ferdinand Gollupp">
+          <span class="jahr">1937</span>
+          <p>Sohn Ferdinand Gollupp übernimmt mit Elisabeth Zotter und führt den Betrieb bis zum 16. Dezember 1954.</p>
+        </li>
+        <li>
+          <img src="assets/img/gasthof-frueher.webp" width="760" height="507" loading="lazy"
+               alt="Farbaufnahme des langgestreckten Gasthauses mit violetten Fensterläden aus früheren Jahren">
+          <span class="jahr">1959</span>
+          <p>Am 4. September wird aus dem Gasthaus Gollupp der Gasthof Dorrer, geführt von Dora und Emmerich Dorrer.</p>
+        </li>
+        <li>
+          <img src="assets/img/hausfassade.webp" width="1100" height="736" loading="lazy"
+               alt="Ockerfarbene Hausfassade mit dem Schriftzug Gasthof Dorrer über den Fenstern">
+          <span class="jahr">1981</span>
+          <p>Ferdinand und Renate Dorrer leiten das Haus vom 14. November 1981 bis zum 30. August 2004.</p>
+        </li>
+        <li>
+          <img src="assets/img/martin-dorrer.webp" width="1100" height="733" loading="lazy"
+               alt="Martin Dorrer und eine Mitarbeiterin stehen vor dem Flaschenregal der Eichenbar">
+          <span class="jahr">2004</span>
+          <p>Martin Dorrer übernimmt in fünfter Generation und baut 2023 die Eichenbar.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="zeiten" aria-labelledby="zeitenTitel">
+    <div class="rand zweispalt">
+      <div>
+        <p class="marke">Wann offen ist</p>
+        <h2 id="zeitenTitel">Öffnungszeiten</h2>
+        <table class="zeittabelle">
+          <thead>
+            <tr><th scope="col">Tag</th><th scope="col">Haus</th><th scope="col">Küche</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Montag</th><td>09:00 bis 22:00</td><td>11:00 bis 21:00</td></tr>
+            <tr><th scope="row">Dienstag</th><td>09:00 bis 22:00</td><td>11:00 bis 21:00</td></tr>
+            <tr><th scope="row">Mittwoch</th><td class="ruhe" colspan="2">Ruhetag</td></tr>
+            <tr><th scope="row">Donnerstag</th><td class="ruhe" colspan="2">Ruhetag</td></tr>
+            <tr><th scope="row">Freitag</th><td>09:00 bis 22:00</td><td>11:00 bis 21:00</td></tr>
+            <tr><th scope="row">Samstag</th><td>09:00 bis 22:00</td><td>11:00 bis 21:00</td></tr>
+            <tr><th scope="row">Sonntag</th><td>09:00 bis 21:00</td><td>11:00 bis 20:00</td></tr>
+          </tbody>
+        </table>
+        <p class="klein" style="margin-top:1rem">An Feiertagen ist geöffnet.</p>
+      </div>
+      <figure class="fuellbild">
+        <img src="assets/img/gasthof-frueher.webp" width="760" height="507" loading="lazy"
+             alt="Farbaufnahme des langgestreckten Gasthauses mit violetten Fensterläden aus früheren Jahren">
+        <figcaption>Der Gasthof vor dem Umbau.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="kontakt" aria-labelledby="kontaktTitel">
+    <div class="rand kontakt-raster">
+      <div>
+        <p class="marke">Kontakt</p>
+        <h2 id="kontaktTitel">So finden Sie uns</h2>
+        <address>
+          <dl style="margin:0">
+            <div class="datenzeile">
+              <dt>Adresse</dt>
+              <dd>Steinbergstraße 41<br>8052 Graz<br>
+                <a href="https://www.openstreetmap.org/search?query=Steinbergstra%C3%9Fe%2041%2C%208052%20Graz" target="_blank" rel="noopener">Auf der Karte ansehen</a>
+              </dd>
+            </div>
+            <div class="datenzeile">
+              <dt>Telefon</dt>
+              <dd><a href="tel:+43316582647">+43 316 582647</a></dd>
+            </div>
+            <div class="datenzeile">
+              <dt>E-Mail</dt>
+              <dd><a href="mailto:martin.dorrer@gasthof-dorrer.at">martin.dorrer@gasthof-dorrer.at</a></dd>
+            </div>
+            <div class="datenzeile">
+              <dt>Lage</dt>
+              <dd>Am westlichen Stadtrand von Graz, in ländlicher Umgebung.</dd>
+            </div>
+          </dl>
+        </address>
+      </div>
+      <div class="karte" id="karte">
+        <div class="karte-cover" id="karteCover">
+          <div class="karte-cover-inner">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg>
+            <p><strong>Google Maps</strong></p>
+            <p class="klein">Die Karte wird erst auf Klick geladen. Dabei werden Daten an Google übertragen und Cookies gesetzt.</p>
+            <button type="button" class="knopf knopf-voll" id="karteLaden">Karte laden</button>
+            <p class="klein" style="margin:.2rem 0 0"><a href="https://www.openstreetmap.org/?mlat=47.055146&amp;mlon=15.374089#map=17/47.055146/15.374089" target="_blank" rel="noopener">Ohne Google in OpenStreetMap öffnen</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="fuss">
+  <div class="rand fuss-raster">
+    <div>
+      <strong>Gasthof Dorrer</strong>
+      <p style="margin:.4rem 0 0">Steinbergstraße 41, 8052 Graz<br>
+        <a href="tel:+43316582647">+43 316 582647</a></p>
+    </div>
+    <div>
+      <p style="margin:0">Freitag bis Dienstag 09:00 bis 22:00 Uhr<br>
+        Sonntag bis 21:00 Uhr<br>
+        Mittwoch und Donnerstag Ruhetag</p>
+    </div>
+    <div>
+      <p style="margin:0 0 .4rem"><a href="chef-table.html">Chef's Table</a> &middot; <a href="biertanks.html">Biertanks</a></p>
+      <p style="margin:0 0 .4rem"><a href="impressum.html">Impressum</a> &middot; <a href="datenschutz.html">Datenschutz</a></p>
+      <p style="margin:0">Alle Bildrechte liegen beim Gasthof Dorrer.</p>
+    </div>
+  </div>
+</footer>
+
+<nav class="mobilleiste" aria-label="Schnellzugriff">
+  <a href="tel:+43316582647">Anrufen</a>
+  <a href="#kontakt">Kontakt</a>
+</nav>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Restaurant",
+  "name":"Gasthof Dorrer",
+  "url":"https://www.gasthof-dorrer.at/",
+  "telephone":"+43316582647",
+  "email":"martin.dorrer@gasthof-dorrer.at",
+  "servesCuisine":["Steirisch","Österreichisch"],
+  "image":"assets/img/eichenbar.webp",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"Steinbergstraße 41",
+    "postalCode":"8052",
+    "addressLocality":"Graz",
+    "addressRegion":"Steiermark",
+    "addressCountry":"AT"
+  },
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Friday","Saturday"],"opens":"09:00","closes":"22:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"09:00","closes":"21:00"}
+  ]
+}
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  document.documentElement.classList.add('js');
+
+  /* ---------- Navbar: Schatten beim Scrollen + aktiver Punkt ---------- */
+  var kopf = document.querySelector('.kopf');
+  if (kopf) {
+    var kopfSchatten = function () { kopf.classList.toggle('gescrollt', window.scrollY > 4); };
+    kopfSchatten();
+    window.addEventListener('scroll', kopfSchatten, { passive: true });
+  }
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.hauptnav a[href^="#"]'));
+  if (navLinks.length && 'IntersectionObserver' in window) {
+    var linkFuer = {};
+    navLinks.forEach(function (a) { linkFuer[a.getAttribute('href').slice(1)] = a; });
+    var spion = new IntersectionObserver(function (eintraege) {
+      eintraege.forEach(function (e) {
+        if (!e.isIntersecting) { return; }
+        var a = linkFuer[e.target.id];
+        if (!a) { return; }
+        navLinks.forEach(function (x) { x.classList.remove('aktiv'); });
+        a.classList.add('aktiv');
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    navLinks.forEach(function (a) {
+      var s = document.getElementById(a.getAttribute('href').slice(1));
+      if (s) { spion.observe(s); }
+    });
+  }
+
+  /* ---------- Karte: Google Maps erst nach Klick laden (ohne Cookie-Banner) ---------- */
+  var karteLaden = document.getElementById('karteLaden');
+  if (karteLaden) {
+    karteLaden.addEventListener('click', function () {
+      var box = document.getElementById('karte');
+      var frame = document.createElement('iframe');
+      frame.title = 'Google Maps: Gasthof Dorrer, Steinbergstra\u00dfe 41, 8052 Graz';
+      frame.loading = 'lazy';
+      frame.setAttribute('allowfullscreen', '');
+      frame.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
+      frame.src = 'https://maps.google.com/maps?q=' + encodeURIComponent('Steinbergstra\u00dfe 41, 8052 Graz') + '&z=15&output=embed';
+      box.innerHTML = '';
+      box.appendChild(frame);
+    });
+  }
+
+}());
+</script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="de-AT">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chef's Table | Gasthof Dorrer</title>
+<style>
+@font-face{font-family:'Bitter';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/bitter-600.woff2') format('woff2')}
+@font-face{font-family:'Bitter';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/bitter-700.woff2') format('woff2')}
+@font-face{font-family:'Source Sans 3';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/source-sans-3-400.woff2') format('woff2')}
+@font-face{font-family:'Source Sans 3';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/source-sans-3-600.woff2') format('woff2')}
+:root{
+  --farbe-primaer:#6d1f28;--farbe-akzent:#b98a4b;--farbe-text:#241a17;
+  --farbe-flaeche:#f6f1e8;--farbe-flaeche-2:#ede4d3;--farbe-dunkel:#2e211c;
+  --farbe-linie:#d8ccb6;--farbe-gedaempft:#5d4c44;
+  --schrift-titel:'Bitter',Georgia,'Times New Roman',serif;
+  --schrift-text:'Source Sans 3',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  --breite:1180px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--farbe-flaeche);color:var(--farbe-text);font-family:var(--schrift-text);font-size:1.0625rem;line-height:1.65;overflow-x:clip}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--farbe-primaer)}
+:focus-visible{outline:3px solid var(--farbe-primaer);outline-offset:3px;border-radius:2px}
+h2,h3{font-family:var(--schrift-titel);font-weight:700;line-height:1.15;margin:0 0 1.1rem;letter-spacing:-.01em}
+h2{font-size:clamp(1.5rem,3.6vw,2.1rem);color:var(--farbe-primaer)}
+h3{font-size:1.15rem;font-weight:600;margin-bottom:.4rem}
+p{margin:0 0 1.1rem}
+.rand{width:100%;max-width:var(--breite);margin:0 auto;padding:0 1.25rem}
+.klein{font-size:.95rem;color:var(--farbe-gedaempft)}
+.marke{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--farbe-primaer);margin:0 0 .7rem;font-weight:600}
+.knopf{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:.7rem 1.5rem;border-radius:3px;border:1px solid transparent;font-family:var(--schrift-text);font-size:1rem;font-weight:600;text-decoration:none;cursor:pointer}
+.knopf-voll{background:var(--farbe-primaer);color:#fff8f0}
+.knopf-voll:hover{background:#571820}
+
+/* Kopf: Logo mittig, Links links und rechts; bleibt beim Scrollen gleich */
+.kopf{border-bottom:1px solid var(--farbe-linie);background:var(--farbe-flaeche)}
+.kopf-innen{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.3rem 1rem;padding:.55rem 0}
+.wortmarke{order:0;flex:0 0 100%;display:flex;justify-content:center;line-height:0;text-decoration:none}
+.wortmarke img{height:50px;width:auto;display:block}
+.hauptnav{display:flex}
+.nav-a{order:1}.nav-b{order:2}
+.hauptnav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.2rem 1.1rem;margin:0;padding:0}
+.hauptnav a{position:relative;display:inline-flex;align-items:center;min-height:44px;font-size:.95rem;text-decoration:none;color:var(--farbe-text);white-space:nowrap;transition:color .15s ease}
+.hauptnav a::after{content:'';position:absolute;left:0;right:0;top:50%;margin-top:.72em;height:2px;background:var(--farbe-akzent);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform .22s ease}
+.hauptnav a:hover,.hauptnav a:focus-visible{color:var(--farbe-primaer)}
+.hauptnav a:hover::after,.hauptnav a:focus-visible::after,.hauptnav a[aria-current=page]::after{transform:scaleX(1)}
+.hauptnav a[aria-current=page]{color:var(--farbe-primaer);font-weight:600}
+.kopf .tel-knopf{display:none}
+@media (min-width:860px){
+  .kopf{position:sticky;top:0;z-index:50}
+  .kopf-innen{flex-wrap:nowrap;justify-content:center;gap:1.6rem;padding:.55rem 0}
+  .nav-a{order:0;flex:0 0 auto;justify-content:flex-end}
+  .nav-a ul{flex-wrap:nowrap}
+  .wortmarke{order:0;flex:0 0 auto}
+  .wortmarke img{height:62px}
+  .nav-b{order:0;flex:0 0 auto;justify-content:flex-start}
+  .nav-b ul{flex-wrap:nowrap}
+}
+
+/* Titelband */
+.titel{background:var(--farbe-dunkel);color:#f0e7d9;padding:clamp(2.4rem,6vw,4.5rem) 0}
+.titel h1{font-family:var(--schrift-titel);font-weight:700;font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.05;margin:0 0 .5rem;color:#fff;letter-spacing:-.02em}
+.titel .marke{color:var(--farbe-akzent)}
+.titel p{margin:0;max-width:60ch;color:rgba(240,231,217,.85)}
+
+/* Inhalt */
+.inhalt{padding:clamp(2.5rem,6vw,4.5rem) 0}
+.block{margin-bottom:clamp(2.2rem,5vw,3.6rem)}
+.block:last-child{margin-bottom:0}
+.augenmass{max-width:60ch}
+.zweispalt{display:grid;gap:2rem;align-items:start}
+@media (min-width:820px){.zweispalt{grid-template-columns:1.05fr .95fr;gap:3rem}}
+figure{margin:0}
+figure img{border-radius:3px;aspect-ratio:3/2;object-fit:cover}
+figcaption{font-size:.9rem;color:var(--farbe-gedaempft);padding-top:.5rem}
+.ablauf{list-style:none;margin:0;padding:0;display:grid;gap:.9rem;counter-reset:a;max-width:52rem}
+.ablauf li{counter-increment:a;display:grid;grid-template-columns:2rem 1fr;gap:.9rem;align-items:start;padding:.7rem 0;border-bottom:1px solid var(--farbe-linie)}
+.ablauf li::before{content:counter(a);width:2rem;height:2rem;border-radius:50%;border:1px solid var(--farbe-akzent);color:var(--farbe-primaer);font-weight:700;font-size:.9rem;display:flex;align-items:center;justify-content:center}
+.eckdaten{list-style:none;margin:0;padding:0;max-width:40rem}
+.eckdaten li{display:flex;justify-content:space-between;gap:1rem;padding:.6rem 0;border-bottom:1px solid var(--farbe-linie)}
+.eckdaten li span:first-child{font-weight:600}
+.eckdaten li span:last-child{text-align:right;color:var(--farbe-gedaempft)}
+.platzhalter{background:#f3e3c9;color:#6b4e1f;padding:0 .3rem;border-radius:2px}
+.hinweis{border-left:4px solid var(--farbe-akzent);background:#fff;padding:.9rem 1.1rem;border-radius:3px;color:var(--farbe-gedaempft);font-size:.95rem;margin:0 0 2rem}
+
+/* Fuss */
+.fuss{background:var(--farbe-dunkel);color:#cdbfae;padding:3rem 0;font-size:.95rem;margin-top:3rem}
+.fuss a{color:#e8c489}
+.fuss-raster{display:grid;gap:1.4rem}
+@media (min-width:760px){.fuss-raster{grid-template-columns:1.4fr 1fr 1fr}}
+.fuss strong{color:#fff;font-family:var(--schrift-titel);font-size:1.05rem}
+</style>
+</head>
+<body>
+
+<header class="kopf">
+  <div class="rand kopf-innen">
+    <nav class="hauptnav nav-a" aria-label="Unterseiten">
+      <ul>
+        <li><a href="chef-table.html" aria-current="page">Chef's Table</a></li>
+        <li><a href="biertanks.html">Biertanks</a></li>
+      </ul>
+    </nav>
+    <a class="wortmarke" href="index.html" aria-label="Gasthof Dorrer, zur Startseite"><img src="assets/img/logo-dorrer.png" alt="Gasthof Dorrer" width="770" height="470"></a>
+    <nav class="hauptnav nav-b" aria-label="Bereiche">
+      <ul>
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="index.html#kueche">Küche</a></li>
+        <li><a href="index.html#zeiten">Zeiten</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+    <a class="tel-knopf" href="tel:+43316582647"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M6.6 3.5c.5 0 .9.3 1 .8l.8 3a1 1 0 0 1-.28 1L6.5 9.6a12 12 0 0 0 4.9 4.9l1.3-1.6a1 1 0 0 1 1-.28l3 .8c.5.1.8.5.8 1v2.2a2.4 2.4 0 0 1-2.6 2.4A15.6 15.6 0 0 1 4.2 6.1 2.4 2.4 0 0 1 6.6 3.5z" fill="currentColor"/></svg><span>+43 316 582647</span></a>
+  </div>
+</header>
+
+<section class="titel">
+  <div class="rand">
+    <p class="marke">Der besondere Platz</p>
+    <h1>Chef's Table</h1>
+    <p>Eine eigene Ecke, gebaut aus dem Holz unserer Geschichte. Ein Tisch, der erzählt.</p>
+  </div>
+</section>
+
+<main class="inhalt">
+  <div class="rand">
+    <div class="block">
+      <div class="zweispalt">
+        <div class="augenmass">
+          <h2>Ein Tisch, der erzählt</h2>
+          <p>Der Chef's Table ist der besondere Platz im Haus. Eine eigene Ecke, gebaut aus dem Holz unserer eigenen Geschichte. Woher wir kommen, bleibt, auch wenn wir weitergehen.</p>
+          <p>Der Großvater von Martin Dorrer, Emmerich, hat hier sein Leben lang Landwirtschaft betrieben. Bauer durch und durch. Heute ist die Landwirtschaft verpachtet, aber was sie uns gegeben hat, ist geblieben. Und genau daraus ist etwas Neues entstanden.</p>
+        </div>
+        <figure>
+          <img src="assets/img/chef-table.webp" width="1500" height="1390" loading="lazy" alt="Der Chef's Table, eine Ecke aus altem Holz mit hoher Sitzbank und Hochtisch">
+          <figcaption>Der Chef's Table im Gasthof Dorrer.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Aus unserer Geschichte gebaut</h2>
+      <p class="augenmass">In nur fünf Tagen ist dieser Raum entstanden. Nicht einfach neu gebaut, sondern aus dem gestaltet, was schon da war.</p>
+      <ul class="ablauf">
+        <li>Die H&auml;ngeleuchte war einmal ein Holzbalken, an dem fr&uuml;her die Rinder gebunden waren, mit denen die Felder gepfl&uuml;gt wurden. Ein St&uuml;ck Vergangenheit, das heute &uuml;ber den G&auml;sten leuchtet.</li>
+        <li>Sitzbank und Wandverkleidung sind aus dem Holz einer alten Heutenne gefertigt. Nicht geschniegelt, nicht versteckt, nur geb&uuml;rstet. So wie es ist.</li>
+        <li>Gestaltet und umgesetzt von Markus Schaffer, DSM Schaffer aus Hitzendorf. Von der Idee bis zum fertigen Raum, alles aus einer Hand.</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <div class="augenmass">
+        <h2>Ein Raum, der nicht laut ist</h2>
+        <p>Aber einer, der erz&auml;hlt. Von fr&uuml;her, von harter Arbeit, von echten Werten. Ein St&uuml;ck Dorrer, gestern wie heute.</p>
+        <p style="margin-top:1.4rem"><a class="knopf knopf-voll" href="tel:+43316582647">Anrufen: +43 316 582647</a></p>
+        <p class="klein">Den Chef's Table gern gleich als Wunsch angeben. <a href="index.html#kontakt">So finden Sie uns</a></p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="fuss">
+  <div class="rand fuss-raster">
+    <div>
+      <strong>Gasthof Dorrer</strong>
+      <p style="margin:.4rem 0 0">Steinbergstraße 41, 8052 Graz<br>
+        <a href="tel:+43316582647">+43 316 582647</a></p>
+    </div>
+    <div>
+      <p style="margin:0">Freitag bis Dienstag 09:00 bis 22:00 Uhr<br>
+        Sonntag bis 21:00 Uhr<br>
+        Mittwoch und Donnerstag Ruhetag</p>
+    </div>
+    <div>
+      <p style="margin:0 0 .4rem"><a href="chef-table.html">Chef's Table</a> &middot; <a href="biertanks.html">Biertanks</a></p>
+      <p style="margin:0 0 .4rem"><a href="impressum.html">Impressum</a> &middot; <a href="datenschutz.html">Datenschutz</a></p>
+      <p style="margin:0">Alle Bildrechte liegen beim Gasthof Dorrer.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
