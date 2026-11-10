@@ -38,6 +38,16 @@ dd{margin:0}
 .hinweis{border-left:4px solid var(--farbe-akzent);background:#fff;padding:.9rem 1.1rem;border-radius:3px;color:var(--farbe-gedaempft);font-size:.95rem;margin:0 0 2rem}
 .fuss{border-top:1px solid var(--farbe-linie);margin-top:3rem;padding-top:1.4rem;font-size:.95rem;color:var(--farbe-gedaempft)}
 .fuss a{color:var(--farbe-primaer)}
+
+/* Inhalte aus dem Admin */
+.karte-gruppe .preis{white-space:nowrap;font-weight:600;color:var(--farbe-primaer);margin-left:.4rem}
+.urlaub-zeile{color:var(--farbe-primaer)}
+.hinweis-popup{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(36,26,23,.6)}
+.hinweis-popup__karte{background:#f6f1e8;max-width:460px;width:100%;border-radius:6px;padding:28px 26px 24px;box-shadow:0 24px 60px rgba(0,0,0,.35);border-top:4px solid #b98a4b}
+.hinweis-popup__marke{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:#6d1f28;font-weight:600;margin:0 0 .5rem}
+.hinweis-popup__titel{font-family:'Bitter',Georgia,serif;font-weight:700;font-size:1.7rem;line-height:1.15;margin:0 0 .7rem;color:#241a17}
+.hinweis-popup__text p{margin:0 0 .7rem}
+.hinweis-popup__zu{margin-top:.4rem}
 </style>
 </head>
 <body>
@@ -66,7 +76,7 @@ dd{margin:0}
   </dl>
 
   <h2>Grundsatz dieser Website</h2>
-  <p>Diese Website ist bewusst datensparsam gestaltet. Sie setzt keine Cookies, verwendet keine Tracking- oder Analysedienste und bindet keine Inhalte von fremden Servern ein. Die verwendeten Schriften liegen lokal auf dem Server, es werden also keine Daten an externe Schriftanbieter übertragen.</p>
+  <p>Diese Website ist bewusst datensparsam gestaltet. Sie setzt keine Cookies, verwendet keine Tracking- oder Analysedienste und bindet ohne Ihre Zustimmung keine Inhalte von fremden Servern ein. Die verwendeten Schriften liegen lokal auf dem Server, es werden also keine Daten an externe Schriftanbieter übertragen. Wenn Sie einen Hinweis (z. B. zum Betriebsurlaub) schließen, merkt sich Ihr Browser das nur für die aktuelle Sitzung im Sitzungsspeicher (Session Storage), damit der Hinweis nicht bei jeder Seite erneut erscheint. Dieser Eintrag wird nicht an uns übertragen und beim Schließen des Browsers gelöscht.</p>
 
   <h2>Reservierungsanfrage</h2>
   <p>Wenn Sie das Reservierungsformular nutzen, werden Ihre Eingaben (Name, Datum, Anzahl der Gäste, Uhrzeit sowie optional Telefonnummer und Anmerkung, dazu Ihre E-Mail-Adresse) nicht auf der Website gespeichert. Beim Absenden öffnet sich Ihr eigenes E-Mail-Programm mit einer vorbereiteten Nachricht, die Sie selbst an den Gasthof senden. Die Übermittlung erfolgt also über Ihr E-Mail-Konto.</p>
@@ -77,6 +87,14 @@ dd{margin:0}
 
   <h2>Hosting und Server-Protokolle</h2>
   <p>Diese Website wird bei Netlify gehostet (Netlify, Inc., 44 Montgomery Street, Suite 300, San Francisco, CA 94104, USA). Beim Aufruf der Website können durch den Anbieter technisch notwendige Zugriffsdaten (etwa IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Seite) in Server-Protokollen verarbeitet werden. Rechtsgrundlage ist Art 6 Abs 1 lit f DSGVO (sicherer und stabiler Betrieb der Website). Da Netlify seinen Sitz in den USA hat, können dabei Daten in die USA übertragen werden. Grundlage dafür sind die Standardvertragsklauseln der EU-Kommission, und mit dem Anbieter besteht ein Vertrag zur Auftragsverarbeitung (Data Processing Addendum).</p>
+
+  <h2 id="facebook">Facebook-Beiträge (Meta)</h2>
+  <p>Auf der Startseite können Sie sich unsere neuesten Facebook-Beiträge anzeigen lassen. Diese werden erst geladen, wenn Sie auf „Beiträge anzeigen“ klicken. Erst dann wird eine Verbindung zu Servern der Meta Platforms Ireland Ltd., Merrion Road, Dublin 4, Irland, hergestellt. Dabei können Daten wie Ihre IP-Adresse, Browserinformationen und die aufgerufene Seite an Meta übertragen werden, und Meta kann Cookies setzen. Wenn Sie bei Facebook angemeldet sind, kann Meta den Besuch Ihrem Konto zuordnen. Eine Übertragung in die USA ist möglich; Meta ist nach dem EU-US Data Privacy Framework zertifiziert.</p>
+  <p>Rechtsgrundlage ist Ihre Einwilligung (Art 6 Abs 1 lit a DSGVO), die Sie durch den Klick erteilen. Sie können sie jederzeit widerrufen, indem Sie die Seite neu laden und die Cookies von Facebook in Ihrem Browser löschen. Für die Erhebung und Übermittlung beim Einbinden sind wir gemeinsam mit Meta verantwortlich (Art 26 DSGVO); für die weitere Verarbeitung ist allein Meta verantwortlich. Mehr dazu: <a href="https://www.facebook.com/privacy/policy/" rel="noopener" target="_blank">Datenschutzrichtlinie von Meta</a>.</p>
+
+  <h2 id="youtube">YouTube-Video</h2>
+  <p>Auf der Seite „Biertanks“ zeigen wir ein Video, das auf YouTube gespeichert ist. Das Video wird erst geladen, wenn Sie auf das Vorschaubild klicken; das Vorschaubild selbst liegt auf unserem Server. Erst mit dem Klick wird eine Verbindung zu Servern der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland, hergestellt. Wir nutzen dafür den erweiterten Datenschutzmodus (youtube-nocookie.com). Dabei können Daten wie Ihre IP-Adresse, Browserinformationen und die aufgerufene Seite an Google übertragen werden, und beim Abspielen kann Google Cookies oder ähnliche Technologien einsetzen. Wenn Sie bei Google angemeldet sind, kann Google den Abruf Ihrem Konto zuordnen. Eine Übertragung in die USA ist möglich; Google ist nach dem EU-US Data Privacy Framework zertifiziert.</p>
+  <p>Rechtsgrundlage ist Ihre Einwilligung (Art 6 Abs 1 lit a DSGVO), die Sie durch den Klick erteilen. Mehr dazu: <a href="https://policies.google.com/privacy" rel="noopener" target="_blank">Datenschutzerklärung von Google</a>.</p>
 
   <h2>Weitergabe von Daten</h2>
   <p>Eine Weitergabe Ihrer Daten an Dritte erfolgt nicht, außer sie ist zur Abwicklung Ihrer Anfrage erforderlich oder gesetzlich vorgeschrieben.</p>
@@ -101,5 +119,6 @@ dd{margin:0}
   </div>
 </main>
 
+<script src="assets/inhalt.js" defer></script>
 </body>
 </html>

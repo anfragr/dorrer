@@ -93,6 +93,36 @@ figcaption{font-size:.9rem;color:var(--farbe-gedaempft);padding-top:.5rem}
 .fuss-raster{display:grid;gap:1.4rem}
 @media (min-width:760px){.fuss-raster{grid-template-columns:1.4fr 1fr 1fr}}
 .fuss strong{color:#fff;font-family:var(--schrift-titel);font-size:1.05rem}
+
+.sorten{list-style:none;margin:0;padding:0;display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.sorten li{border:1px solid var(--farbe-linie);border-radius:4px;padding:1rem 1.1rem;background:#fff}
+.sorten strong{display:block;font-family:var(--schrift-titel);font-size:1.15rem;color:var(--farbe-primaer);margin-bottom:.2rem}
+.sorten span{font-size:.95rem;color:var(--farbe-gedaempft)}
+
+/* Video mit Vorschaubild, YouTube erst nach Klick */
+.video{position:relative;max-width:900px;aspect-ratio:16/9;border-radius:4px;overflow:hidden;background:#1d1512}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-start{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;cursor:pointer;background:#1d1512;display:block;font-family:var(--schrift-text)}
+@media (max-width:600px){.video-play{width:64px;height:64px;margin:-32px 0 0 -32px}.video-play svg{width:26px;height:26px}.video-hinweis{font-size:.72rem;padding:.45rem .7rem;line-height:1.35}}
+.video-start img{width:100%;height:100%;object-fit:cover;aspect-ratio:auto;border-radius:0;opacity:.88;transition:opacity .2s ease}
+.video-start:hover img,.video-start:focus-visible img{opacity:1}
+.video-play{position:absolute;left:50%;top:50%;width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:50%;background:rgba(109,31,40,.92);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(0,0,0,.35);transition:transform .2s ease}
+.video-start:hover .video-play{transform:scale(1.07)}
+.video-play svg{width:34px;height:34px;margin-left:5px;fill:#fff8f0}
+.video-hinweis{position:absolute;left:0;right:0;bottom:0;padding:.7rem 1rem;background:linear-gradient(transparent,rgba(0,0,0,.75));color:#f0e7d9;font-size:.85rem;text-align:left}
+.sorten .art{display:inline-block;font-style:normal;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--farbe-akzent);margin-bottom:.35rem}
+.sorten .art-tank{color:var(--farbe-primaer)}
+.sorten li:first-child{border-color:var(--farbe-akzent);box-shadow:0 0 0 1px var(--farbe-akzent)}
+
+/* Inhalte aus dem Admin */
+.karte-gruppe .preis{white-space:nowrap;font-weight:600;color:var(--farbe-primaer);margin-left:.4rem}
+.urlaub-zeile{color:var(--farbe-primaer)}
+.hinweis-popup{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(36,26,23,.6)}
+.hinweis-popup__karte{background:#f6f1e8;max-width:460px;width:100%;border-radius:6px;padding:28px 26px 24px;box-shadow:0 24px 60px rgba(0,0,0,.35);border-top:4px solid #b98a4b}
+.hinweis-popup__marke{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:#6d1f28;font-weight:600;margin:0 0 .5rem}
+.hinweis-popup__titel{font-family:'Bitter',Georgia,serif;font-weight:700;font-size:1.7rem;line-height:1.15;margin:0 0 .7rem;color:#241a17}
+.hinweis-popup__text p{margin:0 0 .7rem}
+.hinweis-popup__zu{margin-top:.4rem}
 </style>
 </head>
 <body>
@@ -128,37 +158,63 @@ figcaption{font-size:.9rem;color:var(--farbe-gedaempft);padding-top:.5rem}
 
 <main class="inhalt">
   <div class="rand">
-    <div class="hinweis">Entwurf. Die gelb markierten Angaben (Brauerei, Sorte, Tanks) bitte vom Gasthof bestätigen, dann sind sie fertig.</div>
 
     <div class="block">
       <div class="zweispalt">
         <div class="augenmass">
           <h2>Bier direkt vom Tank</h2>
           <p>Bei uns kommt das Bier nicht aus der Flasche, sondern frisch aus dem Tank. Es wird direkt von der Brauerei geliefert und bei uns gelagert, ohne lange Wege. Das Ergebnis ist ein besonders frischer, runder Geschmack, wie man ihn sonst selten bekommt.</p>
-          <p>Weil so ein Tank begrenzt ist, schmeckt man, dass das Bier jung und lebendig ist. Frischer geht Bier nicht.</p>
+          <p>Unsere zwei Tanks fassen je 1.000 Liter, das Bier kommt frisch von der Brauerei Puntigamer. So kommt das Bier jung und lebendig ins Glas. Frischer geht Bier nicht.</p>
         </div>
         <figure>
-          <img src="assets/img/weinfaesser.webp" width="1024" height="683" loading="lazy" alt="Fässer und Bar im Gastraum">
-          <figcaption class="platzhalter">[Echtes Foto der Biertanks ergänzen]</figcaption>
+          <img src="assets/img/biertank.webp" width="1800" height="1200" loading="lazy" alt="Kupferfarbener Biertank über der Eichenbar mit den Logos der Brauereien">
+          <figcaption>Unser Biertank über der Eichenbar.</figcaption>
         </figure>
+      </div>
+    </div>
+
+    <div class="block" id="video">
+      <h2>Unser Bier im Video</h2>
+      <div class="video" id="videoBox">
+        <button type="button" class="video-start" id="videoStart" aria-label="Video abspielen: Bestes Bier in Graz, Gasthof Dorrer">
+          <img src="assets/img/video-bier-cover.webp" width="1280" height="717" alt="" loading="lazy">
+          <span class="video-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="video-hinweis">Mit dem Klick wird das Video von YouTube geladen. Mehr dazu in der Datenschutzerklärung.</span>
+        </button>
       </div>
     </div>
 
     <div class="block">
       <h2>Warum das besser schmeckt</h2>
       <ul class="ablauf">
-        <li>Frisch von der Brauerei, direkt in den Tank, ohne Umweg über die Flasche.</li>
-        <li>Schonend gelagert und jung ausgeschenkt, dadurch besonders frisch im Geschmack.</li>
-        <li>Begrenzte Menge, immer frisch nachgefüllt.</li>
+        <li><div><strong>Frisch von der Brauerei</strong><br>Direkt in den Tank, ohne Umweg über Flasche oder Fass.</div></li>
+        <li><div><strong>Schonend und ruhig gelagert</strong><br>Das Bier lagert ruhig im Tank, immer bei gleicher Temperatur.</div></li>
+        <li><div><strong>Ohne zugesetzte Kohlensäure</strong><br>Das Bier wird mit Druckluft aus dem Tank gezapft, die das Bier selbst nicht berührt. Ins Glas kommt nur das Bier, so wie es die Brauerei abgefüllt hat.</div></li>
+        <li><div><strong>Zwei Tanks mit je 1.000 Litern</strong><br>Zusammen 2.000 Liter Bier, frisch gezapft direkt aus dem Tank.</div></li>
+        <li><div><strong>Von der Brauerei Puntigamer</strong><br>Gebraut in Graz, also aus nächster Nähe.</div></li>
+      </ul>
+    </div>
+
+    <div class="block" id="sorten">
+      <h2>Unsere Biersorten</h2>
+      <p class="augenmass">Die beste Bierauswahl bei uns: vom Tank, vom Fass und aus der Flasche.</p>
+      <ul class="sorten" data-inhalt="sorten">
+        <li><em class="art art-tank">Vom Tank</em><strong>Puntigamer Panther</strong><span>Aus Graz, frisch gezapft aus unserem 1.000-Liter-Tank.</span></li>
+        <li><em class="art art-fass">Vom Fass</em><strong>Birra Moretti</strong><span>Italienisches Lagerbier vom Fass.</span></li>
+        <li><em class="art art-fass">Vom Fass</em><strong>Altbrünner Gold</strong><span>Tschechisches Lagerbier von Starobrno aus Brünn, vom Fass.</span></li>
+        <li><em class="art art-fass">Vom Fass</em><strong>Gösser Zwickl</strong><span>Naturtrübes Zwickl aus der Steiermark, vom Fass.</span></li>
+        <li><em class="art art-flasche">Flasche</em><strong>Gösser Stiftsbräu</strong><span>Das dunkle Gösser, aus der Flasche.</span></li>
+        <li><em class="art art-flasche">Flasche</em><strong>Weihenstephaner</strong><span>Bayerisches Bier aus der Flasche.</span></li>
+        <li><em class="art art-dose">Sammeldose</em><strong>Trooper</strong><span>Englisches Bier in der Sammeldose.</span></li>
       </ul>
     </div>
 
     <div class="block">
       <h2>Gut zu wissen</h2>
       <ul class="eckdaten">
-        <li><span>Brauerei</span><span class="platzhalter">[Brauerei bestätigen, laut Fassade Puntigamer]</span></li>
-        <li><span>Sorte</span><span class="platzhalter">[welche Biersorte eintragen]</span></li>
-        <li><span>Tanks</span><span class="platzhalter">[Anzahl und Größe eintragen]</span></li>
+        <li><span>Brauerei</span><span>Puntigamer, Graz</span></li>
+        <li><span>Tanks</span><span>2 Tanks mit je 1.000 Litern</span></li>
+        <li><span>Ausschank</span><span>Direkt vom Tank, ohne zugesetzte Kohlensäure</span></li>
       </ul>
       <p style="margin-top:1.4rem"><a class="knopf knopf-voll" href="tel:+43316582647">Anrufen: +43 316 582647</a></p>
       <p class="klein"><a href="index.html#kontakt">So finden Sie uns</a></p>
@@ -174,7 +230,7 @@ figcaption{font-size:.9rem;color:var(--farbe-gedaempft);padding-top:.5rem}
         <a href="tel:+43316582647">+43 316 582647</a></p>
     </div>
     <div>
-      <p style="margin:0">Freitag bis Dienstag 09:00 bis 22:00 Uhr<br>
+      <p style="margin:0" data-inhalt="fuss-zeiten">Freitag bis Dienstag 09:00 bis 22:00 Uhr<br>
         Sonntag bis 21:00 Uhr<br>
         Mittwoch und Donnerstag Ruhetag</p>
     </div>
@@ -186,5 +242,23 @@ figcaption{font-size:.9rem;color:var(--farbe-gedaempft);padding-top:.5rem}
   </div>
 </footer>
 
+
+<script>
+/* YouTube erst nach Klick laden */
+(function(){
+  var k=document.getElementById('videoStart'),box=document.getElementById('videoBox');
+  if(!k||!box)return;
+  k.addEventListener('click',function(){
+    var f=document.createElement('iframe');
+    f.referrerPolicy='strict-origin-when-cross-origin';
+    f.src='https://www.youtube-nocookie.com/embed/GTnQmZsQCOw?autoplay=1&rel=0&playsinline=1&origin='+encodeURIComponent(location.origin);
+    f.title='Bestes Bier in Graz, Gasthof Dorrer (Video)';
+    f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';
+    f.allowFullscreen=true;
+    box.innerHTML='';box.appendChild(f);
+  });
+})();
+</script>
+<script src="assets/inhalt.js" defer></script>
 </body>
 </html>

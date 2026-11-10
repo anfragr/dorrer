@@ -93,6 +93,16 @@ figcaption{font-size:.9rem;color:var(--farbe-gedaempft);padding-top:.5rem}
 .fuss-raster{display:grid;gap:1.4rem}
 @media (min-width:760px){.fuss-raster{grid-template-columns:1.4fr 1fr 1fr}}
 .fuss strong{color:#fff;font-family:var(--schrift-titel);font-size:1.05rem}
+
+/* Inhalte aus dem Admin */
+.karte-gruppe .preis{white-space:nowrap;font-weight:600;color:var(--farbe-primaer);margin-left:.4rem}
+.urlaub-zeile{color:var(--farbe-primaer)}
+.hinweis-popup{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(36,26,23,.6)}
+.hinweis-popup__karte{background:#f6f1e8;max-width:460px;width:100%;border-radius:6px;padding:28px 26px 24px;box-shadow:0 24px 60px rgba(0,0,0,.35);border-top:4px solid #b98a4b}
+.hinweis-popup__marke{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:#6d1f28;font-weight:600;margin:0 0 .5rem}
+.hinweis-popup__titel{font-family:'Bitter',Georgia,serif;font-weight:700;font-size:1.7rem;line-height:1.15;margin:0 0 .7rem;color:#241a17}
+.hinweis-popup__text p{margin:0 0 .7rem}
+.hinweis-popup__zu{margin-top:.4rem}
 </style>
 </head>
 <body>
@@ -171,7 +181,7 @@ figcaption{font-size:.9rem;color:var(--farbe-gedaempft);padding-top:.5rem}
         <a href="tel:+43316582647">+43 316 582647</a></p>
     </div>
     <div>
-      <p style="margin:0">Freitag bis Dienstag 09:00 bis 22:00 Uhr<br>
+      <p style="margin:0" data-inhalt="fuss-zeiten">Freitag bis Dienstag 09:00 bis 22:00 Uhr<br>
         Sonntag bis 21:00 Uhr<br>
         Mittwoch und Donnerstag Ruhetag</p>
     </div>
@@ -183,5 +193,6 @@ figcaption{font-size:.9rem;color:var(--farbe-gedaempft);padding-top:.5rem}
   </div>
 </footer>
 
+<script src="assets/inhalt.js" defer></script>
 </body>
 </html>

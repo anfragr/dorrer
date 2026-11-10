@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="de-AT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Verwaltung · Gasthof Dorrer</title>
+<style>
+@font-face{font-family:'Bitter';font-weight:600;font-display:swap;src:url('../assets/fonts/bitter-600.woff2') format('woff2')}
+@font-face{font-family:'Bitter';font-weight:700;font-display:swap;src:url('../assets/fonts/bitter-700.woff2') format('woff2')}
+@font-face{font-family:'Source Sans 3';font-weight:400;font-display:swap;src:url('../assets/fonts/source-sans-3-400.woff2') format('woff2')}
+@font-face{font-family:'Source Sans 3';font-weight:600;font-display:swap;src:url('../assets/fonts/source-sans-3-600.woff2') format('woff2')}
+:root{--rot:#6d1f28;--rot-2:#571820;--gold:#b98a4b;--text:#241a17;--creme:#f6f1e8;--creme-2:#ede4d3;--dunkel:#2e211c;--linie:#d8ccb6;--grau:#5d4c44;--ok:#1d5a32;--fehler:#8e2b2b}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Source Sans 3',system-ui,sans-serif;background:var(--creme);color:var(--text);line-height:1.5;font-size:1.02rem}
+button,input,textarea,select{font:inherit;color:inherit}
+h1,h2{font-family:'Bitter',Georgia,serif;font-weight:700;letter-spacing:-.01em;line-height:1.15}
+.oben{background:var(--dunkel);color:#f0e7d9;padding:.9rem 1.25rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.oben b{font-family:'Bitter',serif;font-size:1.15rem}.oben small{opacity:.65;margin-left:.5rem;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase}
+.oben a{color:#e8c489;font-size:.9rem;text-decoration:none}
+.rahmen{max-width:820px;margin:0 auto;padding:1.5rem 1.25rem 7rem}
+h1{font-size:clamp(1.8rem,5vw,2.5rem);margin:.6rem 0 .3rem;color:var(--rot)}
+.unter{color:var(--grau);margin:0 0 1.5rem}
+.karte{background:#fff;border:1px solid var(--linie);border-radius:6px;padding:1.3rem 1.3rem 1.4rem;margin-bottom:1.1rem}
+.karte h2{font-size:1.35rem;margin:0 0 .2rem;color:var(--rot)}
+.tipp{font-size:.92rem;color:var(--grau);margin:0 0 .9rem}
+label.feld{display:block;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--grau);margin:.9rem 0 .3rem}
+input[type=text],input[type=password],input[type=date],input[type=time],input[type=url],textarea,select{width:100%;padding:.7rem .85rem;border:1px solid var(--linie);border-radius:5px;background:var(--creme)}
+textarea{min-height:90px;resize:vertical}
+input:focus,textarea:focus,select:focus{outline:0;border-color:var(--gold);box-shadow:0 0 0 3px rgba(185,138,75,.25)}
+.zwei{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+@media (max-width:560px){.zwei{grid-template-columns:1fr}}
+.schalter{display:flex;align-items:center;gap:.7rem;cursor:pointer;font-weight:600;margin:.3rem 0}
+.schalter input{position:absolute;opacity:0;width:0;height:0}
+.schalter i{width:46px;height:26px;border-radius:999px;background:#cfc3ae;position:relative;flex:none;transition:background .2s}
+.schalter i::after{content:'';position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform .2s}
+.schalter input:checked+i{background:var(--ok)}
+.schalter input:checked+i::after{transform:translateX(20px)}
+.schalter input:focus-visible+i{outline:2px solid var(--gold);outline-offset:2px}
+.knopf{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;min-height:44px;padding:.6rem 1.2rem;border-radius:5px;border:1px solid transparent;background:var(--rot);color:#fff8f0;font-weight:600;cursor:pointer}
+.knopf:hover{background:var(--rot-2)}
+.knopf[disabled]{opacity:.55;cursor:wait}
+.knopf-leise{background:transparent;color:var(--rot);border-color:var(--linie)}
+.knopf-leise:hover{background:var(--creme-2)}
+.mini{min-height:36px;padding:.3rem .65rem;font-size:.88rem}
+.weg{background:transparent;border:0;color:var(--fehler);cursor:pointer;font-size:1.3rem;line-height:1;padding:.3rem .5rem;border-radius:4px}
+.weg:hover{background:#f6e4e4}
+/* Öffnungszeiten */
+.oz{width:100%;border-collapse:collapse}
+.oz th{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--grau);text-align:left;padding:0 .3rem .4rem;font-weight:600}
+.oz td{padding:.45rem .3rem;border-top:1px solid var(--linie);vertical-align:middle}
+.oz td.tag{font-family:'Bitter',serif;font-weight:600;white-space:nowrap}
+.oz input[type=time]{padding:.45rem .4rem;min-width:0}
+.oz tr.zu td.z{opacity:.3;pointer-events:none}
+.oz .bis{color:var(--grau);font-size:.85rem;padding:0 .15rem}
+.zeitpaar{display:flex;align-items:center;gap:.2rem}
+@media (max-width:640px){.oz thead{display:none}.oz tr{display:grid;grid-template-columns:1fr auto;gap:.35rem .6rem;padding:.6rem 0;border-top:1px solid var(--linie)}.oz td{border:0;padding:0}.oz td.z{grid-column:1/-1}.oz td.z::before{content:attr(data-l);display:block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--grau)}}
+/* Listen */
+.gruppe{border:1px solid var(--linie);border-radius:6px;padding:.9rem;margin-top:.9rem;background:#fffdf9}
+.gruppe-kopf{display:flex;gap:.5rem;align-items:center}
+.gruppe-kopf input{font-family:'Bitter',serif;font-weight:600;font-size:1.05rem}
+.zeile{display:grid;grid-template-columns:1fr 110px auto;gap:.5rem;align-items:center;margin-top:.5rem}
+.bier{display:grid;grid-template-columns:150px 1fr auto;gap:.5rem;align-items:start;margin-top:.7rem;padding-top:.7rem;border-top:1px solid var(--linie)}
+.bier:first-child{border-top:0;padding-top:0}
+.bier .rechts{grid-column:2/3}
+@media (max-width:560px){.zeile{grid-template-columns:1fr 90px auto}.bier{grid-template-columns:1fr auto}.bier .rechts{grid-column:1/2}}
+.pfeile{display:flex;gap:.15rem}
+.pfeile button{background:transparent;border:1px solid var(--linie);border-radius:4px;cursor:pointer;width:32px;height:32px;color:var(--grau)}
+.pfeile button:hover{background:var(--creme-2)}
+.datei{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;margin-top:.6rem}
+.datei input[type=file]{position:absolute;width:1px;height:1px;opacity:0}
+.datei .name{font-size:.92rem;color:var(--grau)}.datei .name.gesetzt{color:var(--ok);font-weight:600}
+.datei a{font-size:.9rem;color:var(--rot)}
+/* Leiste unten */
+.leiste{position:fixed;left:0;right:0;bottom:0;background:rgba(246,241,232,.95);backdrop-filter:blur(8px);border-top:1px solid var(--linie);padding:.85rem 1.25rem;z-index:5}
+.leiste .in{max-width:820px;margin:0 auto;display:flex;gap:1rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.status{font-size:.95rem}.status.ok{color:var(--ok);font-weight:600}.status.fehler{color:var(--fehler);font-weight:600}
+.anmelden{max-width:420px;margin:12vh auto 0}
+.anmelden .knopf{width:100%;margin-top:1rem}
+.meldung{padding:.7rem .9rem;border-radius:5px;font-size:.92rem;margin-top:.8rem;background:#f6e4e4;color:var(--fehler)}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="oben"><span><b>Gasthof Dorrer</b><small>Verwaltung</small></span><a href="../index.html" target="_blank" rel="noopener">Website ansehen ↗</a></div>
+
+<!-- Anmeldung -->
+<section class="rahmen anmelden" id="anmelden">
+  <div class="karte">
+    <h2>Anmelden</h2>
+    <p class="tipp">Bitte das Passwort eingeben, das Sie von Seitfix bekommen haben.</p>
+    <label class="feld" for="pw">Passwort</label>
+    <input id="pw" type="password" autocomplete="current-password">
+    <button class="knopf" id="loginKnopf" type="button">Weiter</button>
+    <div class="meldung" id="loginMeldung" hidden></div>
+  </div>
+</section>
+
+<!-- Verwaltung -->
+<main class="rahmen" id="panel" hidden>
+  <h1>Inhalte ändern</h1>
+  <p class="unter">Ändern Sie, was Sie möchten, und klicken Sie dann unten einmal auf <strong>Veröffentlichen</strong>. Nach etwa einer Minute ist alles online. <span id="stand"></span></p>
+
+  <div class="karte">
+    <h2>Betriebsurlaub</h2>
+    <p class="tipp">Gäste sehen beim Öffnen der Website einen Hinweis, und bei den Öffnungszeiten steht der Urlaub dabei. Nach dem letzten Urlaubstag verschwindet alles von selbst.</p>
+    <label class="schalter"><input type="checkbox" id="u-aktiv"><i></i><span>Betriebsurlaub anzeigen</span></label>
+    <div class="zwei">
+      <div><label class="feld" for="u-von">Erster Urlaubstag</label><input type="date" id="u-von"></div>
+      <div><label class="feld" for="u-bis">Letzter Urlaubstag</label><input type="date" id="u-bis"></div>
+    </div>
+    <label class="feld" for="u-text">Zusatztext (freiwillig)</label>
+    <input type="text" id="u-text" maxlength="400" placeholder="z. B. Ab 16. Jänner sind wir wieder gerne für Sie da!">
+  </div>
+
+  <div class="karte">
+    <h2>Hinweis beim Öffnen der Website</h2>
+    <p class="tipp">Für alles andere, z. B. ein Fest, ein Feiertag oder eine Aktion. Während des Betriebsurlaubs wird stattdessen der Urlaub angezeigt.</p>
+    <label class="schalter"><input type="checkbox" id="h-aktiv"><i></i><span>Hinweis anzeigen</span></label>
+    <label class="feld" for="h-titel">Überschrift</label>
+    <input type="text" id="h-titel" maxlength="80" placeholder="z. B. Martinigansl ab 11. November">
+    <label class="feld" for="h-text">Text</label>
+    <textarea id="h-text" maxlength="600" placeholder="z. B. Bitte rechtzeitig reservieren unter 0316 582647."></textarea>
+  </div>
+
+  <div class="karte">
+    <h2>Öffnungszeiten</h2>
+    <p class="tipp">Schalter aus heißt Ruhetag. Die Zeiten erscheinen auf der Startseite und unten auf jeder Seite.</p>
+    <table class="oz">
+      <thead><tr><th>Tag</th><th>Offen</th><th>Haus</th><th>Küche</th></tr></thead>
+      <tbody id="oz"></tbody>
+    </table>
+    <label class="feld" for="oz-zusatz">Zusatz unter der Tabelle</label>
+    <input type="text" id="oz-zusatz" maxlength="160" placeholder="z. B. An Feiertagen ist geöffnet.">
+  </div>
+
+  <div class="karte">
+    <h2>Speisekarte</h2>
+    <p class="tipp">Der Auszug aus der Speisekarte auf der Startseite. Gerichte hinzufügen, ändern oder mit × löschen. Der Preis ist freiwillig.</p>
+    <label class="feld" for="k-intro">Einleitungstext</label>
+    <textarea id="k-intro" maxlength="300" style="min-height:70px"></textarea>
+    <div id="gruppen"></div>
+    <p style="margin:.9rem 0 0"><button type="button" class="knopf knopf-leise" id="gruppePlus">+ Neue Gruppe</button></p>
+    <label class="feld" style="margin-top:1.4rem">Ganze Speisekarte als PDF (freiwillig)</label>
+    <div class="datei">
+      <input type="file" id="pdf" accept="application/pdf"><label class="knopf mini" for="pdf">PDF auswählen</label>
+      <span class="name" id="pdfName">Keine neue Datei gewählt</span>
+      <a href="../karten/speisekarte.pdf" target="_blank" rel="noopener" id="pdfAktuell" hidden>aktuelle ansehen</a>
+    </div>
+    <label class="schalter" style="margin-top:.8rem"><input type="checkbox" id="k-pdf"><i></i><span>Knopf „Ganze Speisekarte (PDF)“ auf der Website zeigen</span></label>
+  </div>
+
+  <div class="karte">
+    <h2>Biersorten</h2>
+    <p class="tipp">Die Liste auf der Seite „Biertanks“. Mit den Pfeilen ändern Sie die Reihenfolge.</p>
+    <div id="biere"></div>
+    <p style="margin:.9rem 0 0"><button type="button" class="knopf knopf-leise" id="bierPlus">+ Biersorte hinzufügen</button></p>
+  </div>
+
+  <div class="karte">
+    <h2>Facebook</h2>
+    <p class="tipp">Link zu Ihrer Facebook-Seite. Dann erscheinen Ihre Beiträge auf der Startseite unter „Aktuelles“. Leer lassen, um den Bereich auszublenden.</p>
+    <label class="feld" for="fb">Link</label>
+    <input type="url" id="fb" placeholder="https://www.facebook.com/…">
+  </div>
+</main>
+
+<div class="leiste" id="leiste" hidden>
+  <div class="in">
+    <span class="status" id="status">Noch nichts geändert.</span>
+    <button type="button" class="knopf" id="speichern">Veröffentlichen</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var TAGE = ['mo','di','mi','do','fr','sa','so'];
+  var NAME = { mo:'Montag', di:'Dienstag', mi:'Mittwoch', do:'Donnerstag', fr:'Freitag', sa:'Samstag', so:'Sonntag' };
+  var ARTEN = [['tank','Vom Tank'],['fass','Vom Fass'],['flasche','Flasche'],['dose','Sammeldose']];
+  var passwort = '', daten = null, pdfBase64 = null, geaendert = false;
+
+  function $(id) { return document.getElementById(id); }
+  function el(tag, attr, kinder) {
+    var e = document.createElement(tag);
+    Object.keys(attr || {}).forEach(function (k) {
+      if (k === 'text') e.textContent = attr[k];
+      else if (k.indexOf('on') === 0) e.addEventListener(k.slice(2), attr[k]);
+      else e.setAttribute(k, attr[k]);
+    });
+    (kinder || []).forEach(function (c) { if (c) e.appendChild(c); });
+    return e;
+  }
+  function status(text, art) { var s = $('status'); s.textContent = text; s.className = 'status' + (art ? ' ' + art : ''); }
+  function markieren() { geaendert = true; status('Ungespeicherte Änderungen.'); }
+  document.addEventListener('input', function (e) { if ($('panel').contains(e.target)) markieren(); });
+  document.addEventListener('change', function (e) { if ($('panel').contains(e.target)) markieren(); });
+  window.addEventListener('beforeunload', function (e) { if (geaendert) { e.preventDefault(); e.returnValue = ''; } });
+
+  function api(body) {
+    return fetch('/.netlify/functions/speichern', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+      .then(function (r) { return r.json().catch(function () { return { ok: false, fehler: 'Server antwortet nicht (' + r.status + ').' }; }); });
+  }
+
+  /* ---------- Anmelden ---------- */
+  function anmelden() {
+    var pw = $('pw').value;
+    if (!pw) return;
+    $('loginKnopf').disabled = true;
+    api({ passwort: pw, aktion: 'pruefen' }).then(function (r) {
+      $('loginKnopf').disabled = false;
+      if (!r.ok) { $('loginMeldung').textContent = r.fehler || 'Anmelden nicht möglich.'; $('loginMeldung').hidden = false; return; }
+      passwort = pw; laden();
+    }).catch(function () {
+      $('loginKnopf').disabled = false;
+      $('loginMeldung').textContent = 'Keine Verbindung. Der Admin-Bereich funktioniert nur auf der veröffentlichten Website.';
+      $('loginMeldung').hidden = false;
+    });
+  }
+  $('loginKnopf').addEventListener('click', anmelden);
+  $('pw').addEventListener('keydown', function (e) { if (e.key === 'Enter') anmelden(); });
+
+  function laden() {
+    fetch('../data/inhalt.json?v=' + Date.now(), { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (d) {
+      daten = d; fuellen();
+      $('anmelden').hidden = true; $('panel').hidden = false; $('leiste').hidden = false;
+      if (d.aktualisiert) $('stand').textContent = 'Zuletzt geändert: ' + new Date(d.aktualisiert).toLocaleString('de-AT', { dateStyle: 'medium', timeStyle: 'short' }) + '.';
+    });
+  }
+
+  /* ---------- Formular füllen ---------- */
+  function fuellen() {
+    var d = daten;
+    $('u-aktiv').checked = !!(d.urlaub && d.urlaub.aktiv);
+    $('u-von').value = (d.urlaub && d.urlaub.von) || '';
+    $('u-bis').value = (d.urlaub && d.urlaub.bis) || '';
+    $('u-text').value = (d.urlaub && d.urlaub.text) || '';
+    $('h-aktiv').checked = !!(d.hinweis && d.hinweis.aktiv);
+    $('h-titel').value = (d.hinweis && d.hinweis.titel) || '';
+    $('h-text').value = (d.hinweis && d.hinweis.text) || '';
+    zeitenBauen(d.oeffnungszeiten || { tage: {} });
+    $('oz-zusatz').value = (d.oeffnungszeiten && d.oeffnungszeiten.zusatz) || '';
+    var k = d.speisekarte || { gruppen: [] };
+    $('k-intro').value = k.einleitung || '';
+    $('k-pdf').checked = !!k.pdf;
+    $('pdfAktuell').hidden = !k.pdf;
+    $('gruppen').innerHTML = '';
+    (k.gruppen || []).forEach(function (g) { $('gruppen').appendChild(gruppeBauen(g)); });
+    $('biere').innerHTML = '';
+    (d.biersorten || []).forEach(function (b) { $('biere').appendChild(bierBauen(b)); });
+    $('fb').value = d.facebook || '';
+    geaendert = false; status('Noch nichts geändert.');
+  }
+
+  function zeitFeld(wert, l) { return el('input', { type: 'time', value: wert || '', 'aria-label': l, step: 900 }); }
+  function zeitenBauen(oz) {
+    var tb = $('oz'); tb.innerHTML = '';
+    TAGE.forEach(function (t) {
+      var x = oz.tage[t] || {};
+      var cb = el('input', { type: 'checkbox' }); cb.checked = !!x.offen;
+      var tr = el('tr', { 'data-tag': t }, [
+        el('td', { class: 'tag', text: NAME[t] }),
+        el('td', {}, [el('label', { class: 'schalter', title: 'Offen' }, [cb, el('i'), el('span', { class: 'bis', text: '' })])]),
+        el('td', { class: 'z', 'data-l': 'Haus' }, [el('div', { class: 'zeitpaar' }, [zeitFeld(x.von, NAME[t] + ' Haus von'), el('span', { class: 'bis', text: 'bis' }), zeitFeld(x.bis, NAME[t] + ' Haus bis')])]),
+        el('td', { class: 'z', 'data-l': 'Küche' }, [el('div', { class: 'zeitpaar' }, [zeitFeld(x.kv, NAME[t] + ' Küche von'), el('span', { class: 'bis', text: 'bis' }), zeitFeld(x.kb, NAME[t] + ' Küche bis')])])
+      ]);
+      function f() { tr.classList.toggle('zu', !cb.checked); }
+      cb.addEventListener('change', f); f();
+      tb.appendChild(tr);
+    });
+  }
+
+  function pfeile(knoten) {
+    return el('div', { class: 'pfeile' }, [
+      el('button', { type: 'button', title: 'Nach oben', 'aria-label': 'Nach oben', text: '↑', onclick: function () { var p = knoten.previousElementSibling; if (p) { knoten.parentNode.insertBefore(knoten, p); markieren(); } } }),
+      el('button', { type: 'button', title: 'Nach unten', 'aria-label': 'Nach unten', text: '↓', onclick: function () { var n = knoten.nextElementSibling; if (n) { knoten.parentNode.insertBefore(n, knoten); markieren(); } } })
+    ]);
+  }
+
+  function gerichtBauen(x) {
+    var z = el('div', { class: 'zeile' });
+    z.appendChild(el('input', { type: 'text', class: 'g-name', value: x.name || '', maxlength: 220, placeholder: 'Gericht', 'aria-label': 'Gericht' }));
+    z.appendChild(el('input', { type: 'text', class: 'g-preis', value: x.preis || '', maxlength: 20, placeholder: 'Preis', 'aria-label': 'Preis' }));
+    z.appendChild(el('button', { type: 'button', class: 'weg', title: 'Gericht löschen', 'aria-label': 'Gericht löschen', text: '×', onclick: function () { z.remove(); markieren(); } }));
+    return z;
+  }
+  function gruppeBauen(g) {
+    var box = el('div', { class: 'gruppe' });
+    var liste = el('div', { class: 'g-liste' });
+    (g.gerichte || []).forEach(function (x) { liste.appendChild(gerichtBauen(x)); });
+    box.appendChild(el('div', { class: 'gruppe-kopf' }, [
+      el('input', { type: 'text', class: 'g-titel', value: g.titel || '', maxlength: 80, placeholder: 'Name der Gruppe, z. B. Vom Grill', 'aria-label': 'Name der Gruppe' }),
+      pfeile(box),
+      el('button', { type: 'button', class: 'weg', title: 'Ganze Gruppe löschen', 'aria-label': 'Ganze Gruppe löschen', text: '×', onclick: function () { if (confirm('Die ganze Gruppe „' + (box.querySelector('.g-titel').value || 'ohne Namen') + '“ löschen?')) { box.remove(); markieren(); } } })
+    ]));
+    box.appendChild(liste);
+    box.appendChild(el('p', { style: 'margin:.6rem 0 0' }, [el('button', { type: 'button', class: 'knopf knopf-leise mini', text: '+ Gericht', onclick: function () { var z = gerichtBauen({}); liste.appendChild(z); z.querySelector('input').focus(); markieren(); } })]));
+    return box;
+  }
+  $('gruppePlus').addEventListener('click', function () { var g = gruppeBauen({ titel: '', gerichte: [{}] }); $('gruppen').appendChild(g); g.querySelector('input').focus(); markieren(); });
+
+  function bierBauen(b) {
+    var z = el('div', { class: 'bier' });
+    var sel = el('select', { class: 'b-art', 'aria-label': 'Ausschank' });
+    ARTEN.forEach(function (a) { var o = el('option', { value: a[0], text: a[1] }); if (a[0] === b.art) o.selected = true; sel.appendChild(o); });
+    z.appendChild(sel);
+    z.appendChild(el('input', { type: 'text', class: 'b-name', value: b.name || '', maxlength: 60, placeholder: 'Name, z. B. Gösser Zwickl', 'aria-label': 'Name' }));
+    z.appendChild(el('div', { style: 'display:flex;gap:.2rem' }, [pfeile(z), el('button', { type: 'button', class: 'weg', title: 'Löschen', 'aria-label': 'Biersorte löschen', text: '×', onclick: function () { z.remove(); markieren(); } })]));
+    z.appendChild(el('input', { type: 'text', class: 'b-text rechts', value: b.text || '', maxlength: 200, placeholder: 'Kurze Beschreibung', 'aria-label': 'Beschreibung' }));
+    return z;
+  }
+  $('bierPlus').addEventListener('click', function () { var b = bierBauen({ art: 'fass' }); $('biere').appendChild(b); b.querySelector('.b-name').focus(); markieren(); });
+
+  $('pdf').addEventListener('change', function () {
+    var f = this.files[0]; pdfBase64 = null;
+    if (!f) { $('pdfName').textContent = 'Keine neue Datei gewählt'; $('pdfName').className = 'name'; return; }
+    if (f.size > 4.5 * 1024 * 1024) { alert('Das PDF ist größer als 4,5 MB. Bitte kleiner speichern.'); this.value = ''; return; }
+    var r = new FileReader();
+    r.onload = function () { pdfBase64 = String(r.result).split(',')[1]; $('pdfName').textContent = f.name; $('pdfName').className = 'name gesetzt'; $('k-pdf').checked = true; markieren(); };
+    r.readAsDataURL(f);
+  });
+
+  /* ---------- Einsammeln & speichern ---------- */
+  function einsammeln() {
+    var tage = {};
+    Array.prototype.forEach.call($('oz').querySelectorAll('tr'), function (tr) {
+      var z = tr.querySelectorAll('input[type=time]');
+      tage[tr.getAttribute('data-tag')] = { offen: tr.querySelector('input[type=checkbox]').checked, von: z[0].value, bis: z[1].value, kv: z[2].value, kb: z[3].value };
+    });
+    var gruppen = Array.prototype.map.call($('gruppen').children, function (g) {
+      return { titel: g.querySelector('.g-titel').value.trim(), gerichte: Array.prototype.map.call(g.querySelectorAll('.zeile'), function (z) {
+        return { name: z.querySelector('.g-name').value.trim(), preis: z.querySelector('.g-preis').value.trim() };
+      }).filter(function (x) { return x.name; }) };
+    });
+    var biere = Array.prototype.map.call($('biere').children, function (b) {
+      return { art: b.querySelector('.b-art').value, name: b.querySelector('.b-name').value.trim(), text: b.querySelector('.b-text').value.trim() };
+    }).filter(function (b) { return b.name; });
+    return {
+      urlaub: { aktiv: $('u-aktiv').checked, von: $('u-von').value, bis: $('u-bis').value, text: $('u-text').value.trim() },
+      hinweis: { aktiv: $('h-aktiv').checked, titel: $('h-titel').value.trim(), text: $('h-text').value.trim() },
+      oeffnungszeiten: { tage: tage, zusatz: $('oz-zusatz').value.trim() },
+      speisekarte: { einleitung: $('k-intro').value.trim(), pdf: $('k-pdf').checked, gruppen: gruppen },
+      biersorten: biere,
+      facebook: $('fb').value.trim()
+    };
+  }
+
+  function pruefen(d) {
+    if (d.urlaub.aktiv) {
+      if (!d.urlaub.bis) return 'Bitte beim Betriebsurlaub den letzten Urlaubstag eintragen.';
+      if (d.urlaub.von && d.urlaub.von > d.urlaub.bis) return 'Beim Betriebsurlaub liegt der erste Tag nach dem letzten Tag.';
+    }
+    for (var i = 0; i < TAGE.length; i++) {
+      var t = d.oeffnungszeiten.tage[TAGE[i]];
+      if (t.offen && (!t.von || !t.bis)) return 'Bitte bei ' + NAME[TAGE[i]] + ' die Zeiten fürs Haus eintragen oder den Tag als Ruhetag ausschalten.';
+    }
+    if (d.speisekarte.pdf && !pdfBase64 && $('pdfAktuell').hidden) return 'Für den PDF-Knopf bitte zuerst ein PDF auswählen.';
+    if (d.facebook && !/^https:\/\/(www\.|m\.)?facebook\.com\/\S+$/i.test(d.facebook)) return 'Der Facebook-Link muss mit https://www.facebook.com/ beginnen.';
+    return '';
+  }
+
+  $('speichern').addEventListener('click', function () {
+    var d = einsammeln(), f = pruefen(d);
+    if (f) { status(f, 'fehler'); return; }
+    var k = $('speichern'); k.disabled = true; status('Wird veröffentlicht …');
+    api({ passwort: passwort, daten: d, pdf: pdfBase64 }).then(function (r) {
+      k.disabled = false;
+      if (!r.ok) { status(r.fehler || 'Speichern fehlgeschlagen.', 'fehler'); return; }
+      geaendert = false; pdfBase64 = null;
+      $('pdf').value = ''; $('pdfName').textContent = 'Keine neue Datei gewählt'; $('pdfName').className = 'name';
+      if (d.speisekarte.pdf) $('pdfAktuell').hidden = false;
+      status('Gespeichert. In etwa einer Minute ist alles online.', 'ok');
+    }).catch(function () { k.disabled = false; status('Keine Verbindung. Bitte nochmal versuchen.', 'fehler'); });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+# Gasthof Dorrer · Netlify-Konfiguration
+[build]
+  publish = "."
+  command = ""
+  functions = "netlify/functions"
+
+# Inhalte aus dem Admin immer frisch laden
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/karten/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"
+
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Alte Adressen der WordPress-Seite
+[[redirects]]
+  from = "/datenschutzerklaerung/*"
+  to = "/datenschutz.html"
+  status = 301
+
+[[redirects]]
+  from = "/impressum/*"
+  to = "/impressum.html"
+  status = 301
+
+[[redirects]]
+  from = "/wp-content/*"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/wp-admin/*"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/admin"
+  to = "/admin/index.html"
+  status = 200
