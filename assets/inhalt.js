@@ -201,8 +201,17 @@
     hg.querySelector('.hinweis-popup__zu').focus();
   }
 
+  /* ---------- Tagesmenü ---------- */
+  function tagesmenue(t) {
+    if (!t) return;
+    var an = t.aktiv && t.text;
+    $all('tagesmenue-text').forEach(function (e) { if (t.text) e.textContent = t.text; });
+    ['tagesmenue-band', 'tagesmenue-box'].forEach(function (k) { $all(k).forEach(function (e) { e.hidden = !an; }); });
+  }
+
   function anwenden(d) {
     if (!d) return;
+    tagesmenue(d.tagesmenue);
     if (d.oeffnungszeiten && d.oeffnungszeiten.tage) {
       zeitenTabelle(d.oeffnungszeiten, d.urlaub);
       fussZeiten(d.oeffnungszeiten, d.urlaub);

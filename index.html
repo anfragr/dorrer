@@ -380,8 +380,10 @@ h1,h2,h3{overflow-wrap:break-word}
 /* Aktuelles: Facebook mit Zwei-Klick-Lösung */
 .fb-raster{display:grid;gap:2rem;align-items:start}
 @media (min-width:860px){.fb-raster{grid-template-columns:1fr 500px;gap:3rem}}
-.fb-box{background:#fff;border:1px solid var(--farbe-linie);border-radius:4px;min-height:520px;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.fb-box iframe{border:0;width:100%;max-width:500px;height:620px;display:block}
+.fb-box{background:#fff;border:1px solid var(--farbe-linie);border-radius:4px;min-height:480px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.fb-box iframe{border:0;width:100%;max-width:500px;height:560px;display:block}
+.maskottchen{width:min(230px,50%);height:auto;margin:1.6rem 0 0 .4rem}
+@media (max-width:859px){.maskottchen{width:150px;margin-top:1rem}}
 .fb-zustimmung{padding:2rem 1.6rem;text-align:center;max-width:24rem}
 .fb-zustimmung svg{width:44px;height:44px;margin:0 auto 1rem;display:block;color:#1877f2}
 .fb-zustimmung p{font-size:.95rem;color:var(--farbe-gedaempft)}
@@ -395,6 +397,29 @@ h1,h2,h3{overflow-wrap:break-word}
 .hinweis-popup__titel{font-family:'Bitter',Georgia,serif;font-weight:700;font-size:1.7rem;line-height:1.15;margin:0 0 .7rem;color:#241a17}
 .hinweis-popup__text p{margin:0 0 .7rem}
 .hinweis-popup__zu{margin-top:.4rem}
+
+/* Saisonales */
+.saison{margin-top:var(--abstand-l)}
+.saison-titel{font-family:var(--schrift-titel);font-size:clamp(1.4rem,3vw,1.8rem);margin:0 0 1.2rem}
+.saison-raster{list-style:none;margin:0;padding:0;display:grid;gap:1rem;grid-template-columns:repeat(2,1fr)}
+@media (min-width:700px){.saison-raster{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:1000px){.saison-raster{grid-template-columns:repeat(5,1fr)}}
+.saison-bild{aspect-ratio:4/5;border-radius:4px;overflow:hidden;background:var(--farbe-flaeche-2)}
+.saison-bild img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.saison-karte:hover .saison-bild img{transform:scale(1.04)}
+.saison-bild--figur{background:var(--saison-farbe);display:flex;align-items:flex-end;justify-content:center;padding:14% 14% 0}
+.saison-bild--figur img{object-fit:contain;object-position:bottom;height:auto;max-height:100%}
+.saison-karte:hover .saison-bild--figur img{transform:translateY(-4px)}
+.saison-zeit{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--farbe-primaer);font-weight:600;margin:.7rem 0 .15rem}
+.saison-karte h4{font-family:var(--schrift-titel);font-size:1.05rem;font-weight:600;line-height:1.25;margin:0}
+@media (prefers-reduced-motion:reduce){.saison-bild img{transition:none}}
+/* Tagesmenü */
+.tagesmenue-band{background:var(--farbe-primaer);color:#fff8f0}
+.tagesmenue-band .rand{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.3rem 1rem;padding-top:.75rem;padding-bottom:.75rem;text-align:center}
+.tagesmenue-band strong{font-family:var(--schrift-titel);letter-spacing:.02em}
+.tagesmenue-band a{color:#f3d9a8;font-weight:600}
+.tagesmenue-box{border-left:4px solid var(--farbe-akzent);background:#fff;padding:.9rem 1.1rem;border-radius:3px;margin:0 0 1.2rem}
+.tagesmenue-box strong{display:block;font-family:var(--schrift-titel);color:var(--farbe-primaer);font-size:1.1rem}
 </style>
 </head>
 <body>
@@ -444,6 +469,10 @@ h1,h2,h3{overflow-wrap:break-word}
     </div>
   </section>
 
+  <div class="tagesmenue-band" data-inhalt="tagesmenue-band">
+    <div class="rand"><strong>Tagesmenü</strong><span data-inhalt="tagesmenue-text">Dienstag, Mittwoch und Freitag von 11:00 bis 14:00 Uhr</span><a href="#aktuelles">Zum aktuellen Menü</a></div>
+  </div>
+
   <section id="haus" aria-labelledby="hausTitel">
     <div class="rand zweispalt">
       <div>
@@ -457,9 +486,9 @@ h1,h2,h3{overflow-wrap:break-word}
         </blockquote>
       </div>
       <figure>
-        <img src="assets/img/martin-dorrer.webp" width="1100" height="733" loading="lazy"
-             alt="Martin Dorrer und eine Mitarbeiterin stehen vor dem Flaschenregal der Eichenbar">
-        <figcaption>Martin Dorrer führt das Haus seit 2004.</figcaption>
+        <img src="assets/img/martin-maskottchen.webp" width="1400" height="933" loading="lazy"
+             alt="Martin Dorrer, eine Mitarbeiterin und das Dorrer-Männchen an der Eichenbar">
+        <figcaption>Martin Dorrer führt das Haus seit 2004. In der Mitte: unser Dorrer-Männchen.</figcaption>
       </figure>
     </div>
   </section>
@@ -574,17 +603,39 @@ h1,h2,h3{overflow-wrap:break-word}
         </figure>
       </div>
 
+      <div class="saison">
+        <p class="marke">Kochen nach der Jahreszeit</p>
+        <h3 class="saison-titel">Saisonales</h3>
+        <ul class="saison-raster">
+          <li class="saison-karte">
+            <div class="saison-bild"><img src="assets/img/saison-baerlauch.webp" width="720" height="900" loading="lazy" alt="Das Dorrer-Männchen hält einen Strauß Bärlauch, daneben ein Korb mit Jungspinat"></div>
+            <p class="saison-zeit">März und April</p>
+            <h4>Bärlauch und Frühlingsgemüse</h4>
+          </li>
+          <li class="saison-karte">
+            <div class="saison-bild saison-bild--figur" style="--saison-farbe:#e4ead3"><img src="assets/img/maskottchen.webp" width="681" height="884" loading="lazy" alt=""></div>
+            <p class="saison-zeit">Mai und Juni</p>
+            <h4>Spargel</h4>
+          </li>
+          <li class="saison-karte">
+            <div class="saison-bild"><img src="assets/img/saison-schwammerl.webp" width="720" height="900" loading="lazy" alt="Das Dorrer-Männchen im Gastgarten mit einem Korb voller Eierschwammerl und Steinpilze"></div>
+            <p class="saison-zeit">Juni und Juli</p>
+            <h4>Eierschwammerl und Pilze</h4>
+          </li>
+          <li class="saison-karte">
+            <div class="saison-bild saison-bild--figur" style="--saison-farbe:#f1dcc4"><img src="assets/img/maskottchen.webp" width="681" height="884" loading="lazy" alt=""></div>
+            <p class="saison-zeit">August</p>
+            <h4>Alles vom Grill</h4>
+          </li>
+          <li class="saison-karte">
+            <div class="saison-bild"><img src="assets/img/saison-wild.webp" width="720" height="900" loading="lazy" alt="Das Dorrer-Männchen in der Stube vor drei Tellern mit Wildgerichten"></div>
+            <p class="saison-zeit">September bis November</p>
+            <h4>Kürbis und Wild</h4>
+          </li>
+        </ul>
+      </div>
+
       <div class="listen-paar">
-        <div>
-          <h3>Kochen nach der Jahreszeit</h3>
-          <ul class="sachliste">
-            <li><span>März und April</span><span>Bärlauch und Frühlingsgemüse</span></li>
-            <li><span>Mai und Juni</span><span>Spargel</span></li>
-            <li><span>Juni und Juli</span><span>Eierschwammerl und Pilze</span></li>
-            <li><span>August</span><span>Alles vom Grill</span></li>
-            <li><span>September bis November</span><span>Kürbis und Wild</span></li>
-          </ul>
-        </div>
         <div>
           <h3>Steirische Partnerbetriebe</h3>
           <ul class="sachliste">
@@ -642,13 +693,15 @@ h1,h2,h3{overflow-wrap:break-word}
   </section>
 
 
-  <section id="aktuelles" aria-labelledby="aktuellesTitel" hidden>
+  <section id="aktuelles" aria-labelledby="aktuellesTitel">
     <div class="rand fb-raster">
       <div class="augenmass">
         <p class="marke">Neuigkeiten</p>
         <h2 id="aktuellesTitel">Aktuelles vom Dorrer</h2>
-        <p>Was sich bei uns tut, Wochenkarte, Feste und besondere Abende, posten wir auf Facebook. Die neuesten Beiträge sehen Sie hier.</p>
-        <p class="klein"><a href="#" data-inhalt="fb-link" rel="noopener" target="_blank">Zu unserer Facebook-Seite</a></p>
+        <div class="tagesmenue-box" data-inhalt="tagesmenue-box"><strong>Tagesmenü</strong><span data-inhalt="tagesmenue-text">Dienstag, Mittwoch und Freitag von 11:00 bis 14:00 Uhr</span><br><span class="klein">Das aktuelle Tagesmenü steht immer im neuesten Beitrag.</span></div>
+        <p>Was sich bei uns tut, Wochenkarte, Feste und besondere Abende, posten wir auf Facebook. Unser neuester Beitrag steht immer gleich hier.</p>
+        <p class="klein"><a href="https://www.facebook.com/profile.php?id=100063646209319" data-inhalt="fb-link" rel="noopener" target="_blank">Zu unserer Facebook-Seite</a></p>
+        <img class="maskottchen" src="assets/img/maskottchen.webp" width="681" height="884" loading="lazy" alt="Das Dorrer-Männchen mit Hut und grün kariertem Schal breitet die Arme aus">
       </div>
       <div class="fb-box" id="fbBox">
         <div class="fb-zustimmung">
@@ -837,7 +890,7 @@ h1,h2,h3{overflow-wrap:break-word}
 <script>
 /* Facebook erst nach Klick laden (Zwei-Klick-Lösung) */
 (function(){
-  var FB_SEITE = '';
+  var FB_SEITE = 'https://www.facebook.com/profile.php?id=100063646209319';
   var knopf = document.getElementById('fbLaden'), box = document.getElementById('fbBox');
   if (!knopf || !box) return;
   knopf.addEventListener('click', function(){
@@ -849,7 +902,7 @@ h1,h2,h3{overflow-wrap:break-word}
     f.loading = 'lazy';
     f.allow = 'encrypted-media';
     f.src = 'https://www.facebook.com/plugins/page.php?href=' + encodeURIComponent(seite) +
-            '&tabs=timeline&width=' + b + '&height=620&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false';
+            '&tabs=timeline&width=' + b + '&height=560&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false';
     box.innerHTML = ''; box.appendChild(f);
   });
 })();

@@ -66,6 +66,7 @@ function saeubern(d) {
       text: txt(u.text, 400),
     },
     hinweis: { aktiv: h.aktiv === true, titel: txt(h.titel, 80), text: txt(h.text, 600) },
+    tagesmenue: { aktiv: !!(d.tagesmenue && d.tagesmenue.aktiv === true), text: txt(d.tagesmenue && d.tagesmenue.text, 160) },
     oeffnungszeiten: { tage, zusatz: txt(oz.zusatz, 160) },
     speisekarte: { einleitung: txt(k.einleitung, 300), pdf: k.pdf === true, gruppen },
     biersorten: biere,

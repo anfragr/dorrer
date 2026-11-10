@@ -124,6 +124,14 @@ input:focus,textarea:focus,select:focus{outline:0;border-color:var(--gold);box-s
   </div>
 
   <div class="karte">
+    <h2>Tagesmenü</h2>
+    <p class="tipp">Die Zeile auf der Startseite. Das Menü selbst posten Sie wie gewohnt auf Facebook, es erscheint dann automatisch auf der Startseite.</p>
+    <label class="schalter"><input type="checkbox" id="t-aktiv"><i></i><span>Tagesmenü anzeigen</span></label>
+    <label class="feld" for="t-text">Wann gibt es das Tagesmenü?</label>
+    <input type="text" id="t-text" maxlength="160" placeholder="z. B. Dienstag, Mittwoch und Freitag von 11:00 bis 14:00 Uhr">
+  </div>
+
+  <div class="karte">
     <h2>Öffnungszeiten</h2>
     <p class="tipp">Schalter aus heißt Ruhetag. Die Zeiten erscheinen auf der Startseite und unten auf jeder Seite.</p>
     <table class="oz">
@@ -157,12 +165,6 @@ input:focus,textarea:focus,select:focus{outline:0;border-color:var(--gold);box-s
     <p style="margin:.9rem 0 0"><button type="button" class="knopf knopf-leise" id="bierPlus">+ Biersorte hinzufügen</button></p>
   </div>
 
-  <div class="karte">
-    <h2>Facebook</h2>
-    <p class="tipp">Link zu Ihrer Facebook-Seite. Dann erscheinen Ihre Beiträge auf der Startseite unter „Aktuelles“. Leer lassen, um den Bereich auszublenden.</p>
-    <label class="feld" for="fb">Link</label>
-    <input type="url" id="fb" placeholder="https://www.facebook.com/…">
-  </div>
 </main>
 
 <div class="leiste" id="leiste" hidden>
@@ -235,6 +237,8 @@ input:focus,textarea:focus,select:focus{outline:0;border-color:var(--gold);box-s
     $('u-von').value = (d.urlaub && d.urlaub.von) || '';
     $('u-bis').value = (d.urlaub && d.urlaub.bis) || '';
     $('u-text').value = (d.urlaub && d.urlaub.text) || '';
+    $('t-aktiv').checked = !!(d.tagesmenue && d.tagesmenue.aktiv);
+    $('t-text').value = (d.tagesmenue && d.tagesmenue.text) || '';
     $('h-aktiv').checked = !!(d.hinweis && d.hinweis.aktiv);
     $('h-titel').value = (d.hinweis && d.hinweis.titel) || '';
     $('h-text').value = (d.hinweis && d.hinweis.text) || '';
@@ -248,7 +252,6 @@ input:focus,textarea:focus,select:focus{outline:0;border-color:var(--gold);box-s
     (k.gruppen || []).forEach(function (g) { $('gruppen').appendChild(gruppeBauen(g)); });
     $('biere').innerHTML = '';
     (d.biersorten || []).forEach(function (b) { $('biere').appendChild(bierBauen(b)); });
-    $('fb').value = d.facebook || '';
     geaendert = false; status('Noch nichts geändert.');
   }
 
@@ -338,10 +341,11 @@ input:focus,textarea:focus,select:focus{outline:0;border-color:var(--gold);box-s
     return {
       urlaub: { aktiv: $('u-aktiv').checked, von: $('u-von').value, bis: $('u-bis').value, text: $('u-text').value.trim() },
       hinweis: { aktiv: $('h-aktiv').checked, titel: $('h-titel').value.trim(), text: $('h-text').value.trim() },
+      tagesmenue: { aktiv: $('t-aktiv').checked, text: $('t-text').value.trim() },
       oeffnungszeiten: { tage: tage, zusatz: $('oz-zusatz').value.trim() },
       speisekarte: { einleitung: $('k-intro').value.trim(), pdf: $('k-pdf').checked, gruppen: gruppen },
       biersorten: biere,
-      facebook: $('fb').value.trim()
+      facebook: (daten && daten.facebook) || ''
     };
   }
 
@@ -350,12 +354,12 @@ input:focus,textarea:focus,select:focus{outline:0;border-color:var(--gold);box-s
       if (!d.urlaub.bis) return 'Bitte beim Betriebsurlaub den letzten Urlaubstag eintragen.';
       if (d.urlaub.von && d.urlaub.von > d.urlaub.bis) return 'Beim Betriebsurlaub liegt der erste Tag nach dem letzten Tag.';
     }
+    if (d.tagesmenue.aktiv && !d.tagesmenue.text) return 'Bitte beim Tagesmenü eintragen, wann es das gibt.';
     for (var i = 0; i < TAGE.length; i++) {
       var t = d.oeffnungszeiten.tage[TAGE[i]];
       if (t.offen && (!t.von || !t.bis)) return 'Bitte bei ' + NAME[TAGE[i]] + ' die Zeiten fürs Haus eintragen oder den Tag als Ruhetag ausschalten.';
     }
     if (d.speisekarte.pdf && !pdfBase64 && $('pdfAktuell').hidden) return 'Für den PDF-Knopf bitte zuerst ein PDF auswählen.';
-    if (d.facebook && !/^https:\/\/(www\.|m\.)?facebook\.com\/\S+$/i.test(d.facebook)) return 'Der Facebook-Link muss mit https://www.facebook.com/ beginnen.';
     return '';
   }
 

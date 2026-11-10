@@ -13,13 +13,55 @@
   },
   "oeffnungszeiten": {
     "tage": {
-      "mo": { "offen": true,  "von": "09:00", "bis": "22:00", "kv": "11:00", "kb": "21:00" },
-      "di": { "offen": true,  "von": "09:00", "bis": "22:00", "kv": "11:00", "kb": "21:00" },
-      "mi": { "offen": false, "von": "", "bis": "", "kv": "", "kb": "" },
-      "do": { "offen": false, "von": "", "bis": "", "kv": "", "kb": "" },
-      "fr": { "offen": true,  "von": "09:00", "bis": "22:00", "kv": "11:00", "kb": "21:00" },
-      "sa": { "offen": true,  "von": "09:00", "bis": "22:00", "kv": "11:00", "kb": "21:00" },
-      "so": { "offen": true,  "von": "09:00", "bis": "21:00", "kv": "11:00", "kb": "20:00" }
+      "mo": {
+        "offen": true,
+        "von": "09:00",
+        "bis": "22:00",
+        "kv": "11:00",
+        "kb": "21:00"
+      },
+      "di": {
+        "offen": true,
+        "von": "09:00",
+        "bis": "22:00",
+        "kv": "11:00",
+        "kb": "21:00"
+      },
+      "mi": {
+        "offen": false,
+        "von": "",
+        "bis": "",
+        "kv": "",
+        "kb": ""
+      },
+      "do": {
+        "offen": false,
+        "von": "",
+        "bis": "",
+        "kv": "",
+        "kb": ""
+      },
+      "fr": {
+        "offen": true,
+        "von": "09:00",
+        "bis": "22:00",
+        "kv": "11:00",
+        "kb": "21:00"
+      },
+      "sa": {
+        "offen": true,
+        "von": "09:00",
+        "bis": "22:00",
+        "kv": "11:00",
+        "kb": "21:00"
+      },
+      "so": {
+        "offen": true,
+        "von": "09:00",
+        "bis": "21:00",
+        "kv": "11:00",
+        "kb": "20:00"
+      }
     },
     "zusatz": "An Feiertagen ist geöffnet."
   },
@@ -27,35 +69,109 @@
     "einleitung": "Steirisch und saisonal, dazu Fischklassiker und Gegrilltes. Die vollständige Karte liegt im Haus auf.",
     "pdf": false,
     "gruppen": [
-      { "titel": "Fischklassiker", "gerichte": [
-        { "name": "Goldbrassenfilet an Tomatennudeln mit Sardellen und Rucola", "preis": "" },
-        { "name": "Gegrillte Calamari vom Rost mit Knoblauchbutter, Petersilienkartoffeln und Hausbrot", "preis": "" }
-      ]},
-      { "titel": "Vegetarische Gerichte", "gerichte": [
-        { "name": "Gnocchi in Tomatensauce mit Rucola und gegrilltem Schafskäse", "preis": "" },
-        { "name": "Teigtaschen gefüllt mit Ricotta und Rucola in brauner Butter und buntem Gemüse", "preis": "" }
-      ]},
-      { "titel": "Aus der vitalen Küche", "gerichte": [
-        { "name": "Hühnerbrustwürfel vom Grill auf buntem Blattsalat mit American Dressing, Toast und gegrillten Süßkartoffeln", "preis": "" },
-        { "name": "Backhendlsalat, Hühnerbruststreifen auf buntem Blattsalat mit Kernöl", "preis": "" }
-      ]},
-      { "titel": "Vom Grill", "gerichte": [
-        { "name": "Schweinskotelett, Hühnerbrust und Schweinefilet mit Buttergemüse und Farmer Pommes", "preis": "" },
-        { "name": "Beef Burger mit Speck und Cheddar, BBQ Sauce und Pommes frites", "preis": "" }
-      ]},
-      { "titel": "Hausgemachte Desserts", "gerichte": [
-        { "name": "Wechselnd, die Auswahl steht an der Tafel.", "preis": "" }
-      ]}
+      {
+        "titel": "Fischklassiker",
+        "gerichte": [
+          {
+            "name": "Goldbrassenfilet an Tomatennudeln mit Sardellen und Rucola",
+            "preis": ""
+          },
+          {
+            "name": "Gegrillte Calamari vom Rost mit Knoblauchbutter, Petersilienkartoffeln und Hausbrot",
+            "preis": ""
+          }
+        ]
+      },
+      {
+        "titel": "Vegetarische Gerichte",
+        "gerichte": [
+          {
+            "name": "Gnocchi in Tomatensauce mit Rucola und gegrilltem Schafskäse",
+            "preis": ""
+          },
+          {
+            "name": "Teigtaschen gefüllt mit Ricotta und Rucola in brauner Butter und buntem Gemüse",
+            "preis": ""
+          }
+        ]
+      },
+      {
+        "titel": "Aus der vitalen Küche",
+        "gerichte": [
+          {
+            "name": "Hühnerbrustwürfel vom Grill auf buntem Blattsalat mit American Dressing, Toast und gegrillten Süßkartoffeln",
+            "preis": ""
+          },
+          {
+            "name": "Backhendlsalat, Hühnerbruststreifen auf buntem Blattsalat mit Kernöl",
+            "preis": ""
+          }
+        ]
+      },
+      {
+        "titel": "Vom Grill",
+        "gerichte": [
+          {
+            "name": "Schweinskotelett, Hühnerbrust und Schweinefilet mit Buttergemüse und Farmer Pommes",
+            "preis": ""
+          },
+          {
+            "name": "Beef Burger mit Speck und Cheddar, BBQ Sauce und Pommes frites",
+            "preis": ""
+          }
+        ]
+      },
+      {
+        "titel": "Hausgemachte Desserts",
+        "gerichte": [
+          {
+            "name": "Wechselnd, die Auswahl steht an der Tafel.",
+            "preis": ""
+          }
+        ]
+      }
     ]
   },
   "biersorten": [
-    { "art": "tank", "name": "Puntigamer Panther", "text": "Aus Graz, frisch gezapft aus unserem 1.000-Liter-Tank." },
-    { "art": "fass", "name": "Birra Moretti", "text": "Italienisches Lagerbier vom Fass." },
-    { "art": "fass", "name": "Altbrünner Gold", "text": "Tschechisches Lagerbier von Starobrno aus Brünn, vom Fass." },
-    { "art": "fass", "name": "Gösser Zwickl", "text": "Naturtrübes Zwickl aus der Steiermark, vom Fass." },
-    { "art": "flasche", "name": "Gösser Stiftsbräu", "text": "Das dunkle Gösser, aus der Flasche." },
-    { "art": "flasche", "name": "Weihenstephaner", "text": "Bayerisches Bier aus der Flasche." },
-    { "art": "dose", "name": "Trooper", "text": "Englisches Bier in der Sammeldose." }
+    {
+      "art": "tank",
+      "name": "Puntigamer Panther",
+      "text": "Aus Graz, frisch gezapft aus unserem 1.000-Liter-Tank."
+    },
+    {
+      "art": "fass",
+      "name": "Birra Moretti",
+      "text": "Italienisches Lagerbier vom Fass."
+    },
+    {
+      "art": "fass",
+      "name": "Altbrünner Gold",
+      "text": "Tschechisches Lagerbier von Starobrno aus Brünn, vom Fass."
+    },
+    {
+      "art": "fass",
+      "name": "Gösser Zwickl",
+      "text": "Naturtrübes Zwickl aus der Steiermark, vom Fass."
+    },
+    {
+      "art": "flasche",
+      "name": "Gösser Stiftsbräu",
+      "text": "Das dunkle Gösser, aus der Flasche."
+    },
+    {
+      "art": "flasche",
+      "name": "Weihenstephaner",
+      "text": "Bayerisches Bier aus der Flasche."
+    },
+    {
+      "art": "dose",
+      "name": "Trooper",
+      "text": "Englisches Bier in der Sammeldose."
+    }
   ],
-  "facebook": ""
+  "facebook": "https://www.facebook.com/profile.php?id=100063646209319",
+  "tagesmenue": {
+    "aktiv": true,
+    "text": "Dienstag, Mittwoch und Freitag von 11:00 bis 14:00 Uhr"
+  }
 }

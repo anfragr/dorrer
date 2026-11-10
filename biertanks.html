@@ -123,9 +123,35 @@ figcaption{font-size:.9rem;color:var(--farbe-gedaempft);padding-top:.5rem}
 .hinweis-popup__titel{font-family:'Bitter',Georgia,serif;font-weight:700;font-size:1.7rem;line-height:1.15;margin:0 0 .7rem;color:#241a17}
 .hinweis-popup__text p{margin:0 0 .7rem}
 .hinweis-popup__zu{margin-top:.4rem}
+
+/* Dunkle Seite (Wunsch Gasthof) */
+body.seite-dunkel{background:#1d1512;color:#eadfce}
+body.seite-dunkel .kopf{background:#1d1512;border-bottom-color:#3a2c25}
+body.seite-dunkel .hauptnav a{color:#eadfce}
+body.seite-dunkel .hauptnav a:hover,body.seite-dunkel .hauptnav a[aria-current=page]{color:var(--farbe-akzent)}
+body.seite-dunkel .wortmarke img{background:#f6f1e8;border-radius:6px;padding:4px 10px}
+body.seite-dunkel .titel{background:#120d0b}
+body.seite-dunkel h2{color:#f3d9a8}
+body.seite-dunkel a{color:#e8c489}
+body.seite-dunkel .klein,body.seite-dunkel figcaption{color:#b9a998}
+body.seite-dunkel .ablauf li,body.seite-dunkel .eckdaten li{border-bottom-color:#3a2c25}
+body.seite-dunkel .ablauf li::before{color:#f3d9a8}
+body.seite-dunkel .ablauf strong{color:#fff}
+body.seite-dunkel .eckdaten li span:last-child{color:#d6c7b3}
+body.seite-dunkel .knopf-voll{background:var(--farbe-akzent);color:#1d1512}
+body.seite-dunkel .knopf-voll:hover{background:#cfa060}
+body.seite-dunkel .fuss{background:#120d0b;margin-top:0}
+body.seite-dunkel .sorten li{background:#241a16;border-color:#3a2c25}
+body.seite-dunkel .sorten li:first-child{border-color:var(--farbe-akzent)}
+body.seite-dunkel .sorten strong{color:#fff}
+body.seite-dunkel .sorten span{color:#b9a998}
+body.seite-dunkel .sorten .art-tank{color:#f3d9a8}
+body.seite-dunkel .augenmass{color:#eadfce}
+.prost{margin:0;border-radius:4px;overflow:hidden}
+.prost img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:4px}
 </style>
 </head>
-<body>
+<body class="seite-dunkel">
 
 <header class="kopf">
   <div class="rand kopf-innen">
@@ -189,10 +215,17 @@ figcaption{font-size:.9rem;color:var(--farbe-gedaempft);padding-top:.5rem}
       <ul class="ablauf">
         <li><div><strong>Frisch von der Brauerei</strong><br>Direkt in den Tank, ohne Umweg über Flasche oder Fass.</div></li>
         <li><div><strong>Schonend und ruhig gelagert</strong><br>Das Bier lagert ruhig im Tank, immer bei gleicher Temperatur.</div></li>
-        <li><div><strong>Ohne zugesetzte Kohlensäure</strong><br>Das Bier wird mit Druckluft aus dem Tank gezapft, die das Bier selbst nicht berührt. Ins Glas kommt nur das Bier, so wie es die Brauerei abgefüllt hat.</div></li>
+        <li><div><strong>Ohne Kohlensäure</strong><br>Das Bier befindet sich im Tank und wird mittels Druckluft abgefüllt. Im Glas ist nur die Stammwürze.</div></li>
         <li><div><strong>Zwei Tanks mit je 1.000 Litern</strong><br>Zusammen 2.000 Liter Bier, frisch gezapft direkt aus dem Tank.</div></li>
         <li><div><strong>Von der Brauerei Puntigamer</strong><br>Gebraut in Graz, also aus nächster Nähe.</div></li>
       </ul>
+    </div>
+
+    <div class="block">
+      <figure class="prost">
+        <img src="assets/img/maskottchen-bier.webp" width="1400" height="933" loading="lazy" alt="Das Dorrer-Männchen zwinkert an der Bar und hält ein frisch gezapftes Bier, dahinter der Kupfertank">
+        <figcaption>Prost! Frisch gezapft vom Tank.</figcaption>
+      </figure>
     </div>
 
     <div class="block" id="sorten">
@@ -214,7 +247,7 @@ figcaption{font-size:.9rem;color:var(--farbe-gedaempft);padding-top:.5rem}
       <ul class="eckdaten">
         <li><span>Brauerei</span><span>Puntigamer, Graz</span></li>
         <li><span>Tanks</span><span>2 Tanks mit je 1.000 Litern</span></li>
-        <li><span>Ausschank</span><span>Direkt vom Tank, ohne zugesetzte Kohlensäure</span></li>
+        <li><span>Ausschank</span><span>Direkt vom Tank, ohne Kohlensäure</span></li>
       </ul>
       <p style="margin-top:1.4rem"><a class="knopf knopf-voll" href="tel:+43316582647">Anrufen: +43 316 582647</a></p>
       <p class="klein"><a href="index.html#kontakt">So finden Sie uns</a></p>
