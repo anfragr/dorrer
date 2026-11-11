@@ -127,15 +127,19 @@
     if (!box || !k || !k.gruppen) return;
     var html = k.gruppen.filter(function (g) { return g.titel || (g.gerichte && g.gerichte.length); }).map(function (g) {
       return '<div class="karte-gruppe"><h3>' + esc(g.titel) + '</h3><ul>' + (g.gerichte || []).map(function (x) {
-        return '<li>' + esc(x.name) + (x.preis ? ' <span class="preis">' + esc(x.preis) + '</span>' : '') + '</li>';
+        return '<li><span class="gericht">' + esc(x.name) + '</span>' + (x.preis ? ' <span class="preis">' + esc(x.preis) + '</span>' : '') +
+          (x.text ? '<span class="beschreibung">' + esc(x.text) + '</span>' : '') + '</li>';
       }).join('') + '</ul></div>';
     });
-    // auf zwei Spalten verteilen, ungefähr gleich lang
-    var links = [], rechts = [], hl = 0, hr = 0;
+    // auf zwei Spalten verteilen, Reihenfolge bleibt (links zuerst, dann rechts)
+    var links = [], rechts = [], hoehe = [], gesamt = 0, bisher = 0;
+    k.gruppen.forEach(function (g, i) {
+      var h = html[i] ? 2 + (g.gerichte || []).reduce(function (s, x) { return s + (x.text ? 2 : 1); }, 0) : 0;
+      hoehe.push(h); gesamt += h;
+    });
     k.gruppen.forEach(function (g, i) {
       if (!html[i]) return;
-      var h = 2 + (g.gerichte || []).length;
-      if (hl <= hr) { links.push(html[i]); hl += h; } else { rechts.push(html[i]); hr += h; }
+      if (!links.length || bisher + hoehe[i] / 2 <= gesamt / 2) { links.push(html[i]); bisher += hoehe[i]; } else { rechts.push(html[i]); }
     });
     box.innerHTML = '<div>' + links.join('') + '</div><div>' + rechts.join('') + '</div>';
     var intro = $('speise-intro');

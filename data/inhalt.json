@@ -66,66 +66,95 @@
     "zusatz": "An Feiertagen ist geöffnet."
   },
   "speisekarte": {
-    "einleitung": "Steirisch und saisonal, dazu Fischklassiker und Gegrilltes. Die vollständige Karte liegt im Haus auf.",
+    "einleitung": "Wir legen Wert auf Qualität, frische Zutaten und ehrlichen Geschmack. Vom knusprigen Backhendl bis zum feinen Safranrisotto ist für jeden Geschmack etwas dabei.",
     "pdf": false,
     "gruppen": [
       {
-        "titel": "Fischklassiker",
+        "titel": "Wirtshausklassiker",
         "gerichte": [
           {
-            "name": "Goldbrassenfilet an Tomatennudeln mit Sardellen und Rucola",
+            "name": "Wiener Schnitzel vom Schwein",
+            "text": "Mit Pommes frites und Pfirsich mit Preiselbeeren.",
             "preis": ""
           },
           {
-            "name": "Gegrillte Calamari vom Rost mit Knoblauchbutter, Petersilienkartoffeln und Hausbrot",
+            "name": "Cordon bleu vom Schwein oder von der Pute",
+            "text": "Mit Pommes frites oder wahlweise mit Reis, dazu gemischter Salat.",
+            "preis": ""
+          },
+          {
+            "name": "Das „Meister-Schnitzerl“",
+            "text": "Weltweit nur beim Dorrer: knusprig gebackene Schweineschnitzerl aus dem Schweinekarree, dazu Gitterpommes, Wasabi-Mayo und Preiselbeeren.",
+            "preis": ""
+          },
+          {
+            "name": "Klassischer Tafelspitz",
+            "text": "In kräftiger Rindsuppe mit Wurzelgemüse gekocht, dazu Röstkartoffeln, Cremespinat, Schnittlauchsauce und Apfelkren.",
             "preis": ""
           }
         ]
       },
       {
-        "titel": "Vegetarische Gerichte",
+        "titel": "Fisch",
         "gerichte": [
           {
-            "name": "Gnocchi in Tomatensauce mit Rucola und gegrilltem Schafskäse",
+            "name": "Gebratene Forelle mit Knoblauch",
+            "text": "Serviert mit Petersilienkartoffeln.",
             "preis": ""
           },
           {
-            "name": "Teigtaschen gefüllt mit Ricotta und Rucola in brauner Butter und buntem Gemüse",
+            "name": "Goldbrassenfilet",
+            "text": "Auf Tomatennudeln mit Sardellen und frischem Rucola.",
+            "preis": ""
+          },
+          {
+            "name": "Gegrillte Calamari vom Rost",
+            "text": "Mit Knoblauchbutter, Petersilienkartoffeln und Hausbrot.",
             "preis": ""
           }
         ]
       },
       {
-        "titel": "Aus der vitalen Küche",
+        "titel": "Köstliches vom Grill",
         "gerichte": [
           {
-            "name": "Hühnerbrustwürfel vom Grill auf buntem Blattsalat mit American Dressing, Toast und gegrillten Süßkartoffeln",
+            "name": "Dreierlei vom Grill",
+            "text": "Schweinskotelett, Hühnerbrust und Schweinefilet mit Buttergemüse und Farmer Pommes.",
             "preis": ""
           },
           {
-            "name": "Backhendlsalat, Hühnerbruststreifen auf buntem Blattsalat mit Kernöl",
+            "name": "Hausspieß vom Grill",
+            "text": "Zartes Schweinefilet und Hühnerbrust auf kurz gebratenem Gemüse, mit Sweet-Chilisauce verfeinert. Dazu Ofenkartoffel mit Knoblauchsauce.",
             "preis": ""
           }
         ]
       },
       {
-        "titel": "Vom Grill",
+        "titel": "Frisch & Leicht",
         "gerichte": [
           {
-            "name": "Schweinskotelett, Hühnerbrust und Schweinefilet mit Buttergemüse und Farmer Pommes",
+            "name": "Hühnerbrustwürfel vom Grill",
+            "text": "Auf buntem Blattsalat mit American Dressing, Toast und gegrillten Süßkartoffeln.",
             "preis": ""
           },
           {
-            "name": "Beef Burger mit Speck und Cheddar, BBQ Sauce und Pommes frites",
+            "name": "Steirischer Backhendlsalat",
+            "text": "Knusprig gebackene Hühnerbruststreifen auf buntem Blattsalat, verfeinert mit steirischem Kürbiskernöl.",
             "preis": ""
           }
         ]
       },
       {
-        "titel": "Hausgemachte Desserts",
+        "titel": "Vegetarische Köstlichkeiten",
         "gerichte": [
           {
-            "name": "Wechselnd, die Auswahl steht an der Tafel.",
+            "name": "Gnocchi in Tomatensauce",
+            "text": "Mit frischem Rucola und gegrilltem Schafskäse.",
+            "preis": ""
+          },
+          {
+            "name": "Safranrisotto mit Schafsmilchkäse",
+            "text": "Verfeinert mit Nüssen, gebratenen Feigen und Gemüse.",
             "preis": ""
           }
         ]

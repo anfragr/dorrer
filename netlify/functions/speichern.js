@@ -50,7 +50,7 @@ function saeubern(d) {
   const gruppen = (Array.isArray(k.gruppen) ? k.gruppen : []).slice(0, 20).map((g) => ({
     titel: txt(g && g.titel, 80),
     gerichte: (Array.isArray(g && g.gerichte) ? g.gerichte : []).slice(0, 40)
-      .map((x) => ({ name: txt(x && x.name, 220), preis: txt(x && x.preis, 20) }))
+      .map((x) => ({ name: txt(x && x.name, 220), text: txt(x && x.text, 400), preis: txt(x && x.preis, 20) }))
       .filter((x) => x.name),
   })).filter((g) => g.titel || g.gerichte.length);
   const biere = (Array.isArray(d.biersorten) ? d.biersorten : []).slice(0, 30)

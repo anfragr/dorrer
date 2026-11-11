@@ -59,7 +59,9 @@ input:focus,textarea:focus,select:focus{outline:0;border-color:var(--gold);box-s
 .gruppe{border:1px solid var(--linie);border-radius:6px;padding:.9rem;margin-top:.9rem;background:#fffdf9}
 .gruppe-kopf{display:flex;gap:.5rem;align-items:center}
 .gruppe-kopf input{font-family:'Bitter',serif;font-weight:600;font-size:1.05rem}
-.zeile{display:grid;grid-template-columns:1fr 110px auto;gap:.5rem;align-items:center;margin-top:.5rem}
+.zeile{display:grid;grid-template-columns:1fr 110px auto;gap:.5rem;align-items:center;margin-top:.7rem;padding-top:.7rem;border-top:1px dashed var(--linie)}
+.zeile:first-child{border-top:0;padding-top:0}
+.zeile .g-text{grid-column:1/3;font-size:.92rem}
 .bier{display:grid;grid-template-columns:150px 1fr auto;gap:.5rem;align-items:start;margin-top:.7rem;padding-top:.7rem;border-top:1px solid var(--linie)}
 .bier:first-child{border-top:0;padding-top:0}
 .bier .rechts{grid-column:2/3}
@@ -144,7 +146,7 @@ input:focus,textarea:focus,select:focus{outline:0;border-color:var(--gold);box-s
 
   <div class="karte">
     <h2>Speisekarte</h2>
-    <p class="tipp">Der Auszug aus der Speisekarte auf der Startseite. Gerichte hinzufügen, ändern oder mit × löschen. Der Preis ist freiwillig.</p>
+    <p class="tipp">Der Auszug aus der Speisekarte auf der Startseite. Gerichte hinzufügen, ändern oder mit × löschen. Beschreibung und Preis sind freiwillig.</p>
     <label class="feld" for="k-intro">Einleitungstext</label>
     <textarea id="k-intro" maxlength="300" style="min-height:70px"></textarea>
     <div id="gruppen"></div>
@@ -285,6 +287,7 @@ input:focus,textarea:focus,select:focus{outline:0;border-color:var(--gold);box-s
     z.appendChild(el('input', { type: 'text', class: 'g-name', value: x.name || '', maxlength: 220, placeholder: 'Gericht', 'aria-label': 'Gericht' }));
     z.appendChild(el('input', { type: 'text', class: 'g-preis', value: x.preis || '', maxlength: 20, placeholder: 'Preis', 'aria-label': 'Preis' }));
     z.appendChild(el('button', { type: 'button', class: 'weg', title: 'Gericht löschen', 'aria-label': 'Gericht löschen', text: '×', onclick: function () { z.remove(); markieren(); } }));
+    z.appendChild(el('input', { type: 'text', class: 'g-text', value: x.text || '', maxlength: 400, placeholder: 'Beschreibung, z. B. Mit Pommes frites und Salat (freiwillig)', 'aria-label': 'Beschreibung' }));
     return z;
   }
   function gruppeBauen(g) {
@@ -332,7 +335,7 @@ input:focus,textarea:focus,select:focus{outline:0;border-color:var(--gold);box-s
     });
     var gruppen = Array.prototype.map.call($('gruppen').children, function (g) {
       return { titel: g.querySelector('.g-titel').value.trim(), gerichte: Array.prototype.map.call(g.querySelectorAll('.zeile'), function (z) {
-        return { name: z.querySelector('.g-name').value.trim(), preis: z.querySelector('.g-preis').value.trim() };
+        return { name: z.querySelector('.g-name').value.trim(), text: z.querySelector('.g-text').value.trim(), preis: z.querySelector('.g-preis').value.trim() };
       }).filter(function (x) { return x.name; }) };
     });
     var biere = Array.prototype.map.call($('biere').children, function (b) {

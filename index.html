@@ -421,22 +421,25 @@ h1,h2,h3{overflow-wrap:break-word}
 .tagesmenue-box{border-left:4px solid var(--farbe-akzent);background:#fff;padding:.9rem 1.1rem;border-radius:3px;margin:0 0 1.2rem}
 .tagesmenue-box strong{display:block;font-family:var(--schrift-titel);color:var(--farbe-primaer);font-size:1.1rem}
 </style>
+<link rel="stylesheet" href="assets/gemeinsam.css">
 </head>
-<body>
+<body class="seite-dunkel">
 
 <header class="kopf">
   <div class="rand kopf-innen">
     <nav class="hauptnav nav-a" aria-label="Unterseiten">
       <ul>
+        <li><a href="eichenbar.html">Eichenbar</a></li>
         <li><a href="chef-table.html">Chef's Table</a></li>
         <li><a href="biertanks.html">Biertanks</a></li>
+        <li><a href="feiern.html">Feiern</a></li>
       </ul>
     </nav>
     <a class="wortmarke" href="#oben" aria-label="Gasthof Dorrer, zur Startseite"><img src="assets/img/logo-dorrer.png" alt="Gasthof Dorrer" width="770" height="470"></a>
     <nav class="hauptnav nav-b" aria-label="Bereiche">
       <ul>
-        <li><a href="#eichenbar">Eichenbar</a></li>
         <li><a href="#kueche">Küche</a></li>
+        <li><a href="presse.html">Presse</a></li>
         <li><a href="#zeiten">Zeiten</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
       </ul>
@@ -520,6 +523,14 @@ h1,h2,h3{overflow-wrap:break-word}
       </ul>
       <div class="bilderpaar">
         <figure>
+          <img src="assets/img/eichenbar.webp" width="1900" height="1266" loading="lazy"
+               alt="Blick entlang der Eichenbar mit Zapfanlage, Gläserregal und Weinfässern">
+        </figure>
+        <figure>
+          <img src="assets/img/eichenbar-tresen.webp" width="1800" height="1200" loading="lazy"
+               alt="Die Eichenbar von vorne mit Kupferlampen und Biertank darüber">
+        </figure>
+        <figure>
           <img src="assets/img/weinfaesser.webp" width="1024" height="683" loading="lazy"
                alt="Regal aus Weinfässern neben Stehtischen im Gastraum">
         </figure>
@@ -528,79 +539,103 @@ h1,h2,h3{overflow-wrap:break-word}
                alt="Gedeckte Tische in der Gaststube mit Holzvertäfelung und Fenstern zum Garten">
         </figure>
       </div>
+      <p style="margin-top:1.6rem"><a class="knopf knopf-linie" href="eichenbar.html">Die ganze Geschichte der Eichenbar</a></p>
     </div>
   </section>
 
   <section id="kueche" aria-labelledby="kuecheTitel">
     <div class="rand">
       <div class="sektion-kopf augenmass">
-        <p class="marke">Auszug aus der Speisekarte</p>
-        <h2 id="kuecheTitel">Küche</h2>
-        <p data-inhalt="speise-intro">Steirisch und saisonal, dazu Fischklassiker und Gegrilltes. Die vollständige Karte liegt im Haus auf.</p>
-        <p data-inhalt="speise-pdf" hidden><a class="knopf knopf-voll" href="karten/speisekarte.pdf" target="_blank" rel="noopener">Ganze Speisekarte (PDF)</a></p>
+        <p class="marke">Kulinarik im Gasthof Dorrer</p>
+        <h2 id="kuecheTitel">Tradition trifft auf Genuss</h2>
+        <p data-inhalt="speise-intro">Wir legen Wert auf Qualität, frische Zutaten und ehrlichen Geschmack. Vom knusprigen Backhendl bis zum feinen Safranrisotto ist für jeden Geschmack etwas dabei.</p>
       </div>
+
+      <div class="mitnehmen">
+        <div>
+          <p class="mitnehmen-marke">Für zu Hause</p>
+          <h3>Unsere Speisen zum Mitnehmen</h3>
+          <p>Einfach telefonisch vorbestellen, abholen und genießen!</p>
+        </div>
+        <a class="knopf knopf-voll" href="tel:+43316582647">Vorbestellen: +43 316 582647</a>
+      </div>
+
+      <h3 class="karte-titel">Ein kleiner Auszug aus unserer Speisekarte</h3>
+      <p data-inhalt="speise-pdf" hidden><a class="knopf knopf-linie" href="karten/speisekarte.pdf" target="_blank" rel="noopener">Ganze Speisekarte (PDF)</a></p>
       <div class="speisen-raster" data-inhalt="speisen">
         <div>
           <div class="karte-gruppe">
-            <h3>Fischklassiker</h3>
+            <h3>Wirtshausklassiker</h3>
             <ul>
-              <li>Goldbrassenfilet an Tomatennudeln mit Sardellen und Rucola</li>
-              <li>Gegrillte Calamari vom Rost mit Knoblauchbutter, Petersilienkartoffeln und Hausbrot</li>
+              <li><span class="gericht">Wiener Schnitzel vom Schwein</span><span class="beschreibung">Mit Pommes frites und Pfirsich mit Preiselbeeren.</span></li>
+              <li><span class="gericht">Cordon bleu vom Schwein oder von der Pute</span><span class="beschreibung">Mit Pommes frites oder wahlweise mit Reis, dazu gemischter Salat.</span></li>
+              <li><span class="gericht">Das „Meister-Schnitzerl“</span><span class="beschreibung">Weltweit nur beim Dorrer: knusprig gebackene Schweineschnitzerl aus dem Schweinekarree, dazu Gitterpommes, Wasabi-Mayo und Preiselbeeren.</span></li>
+              <li><span class="gericht">Klassischer Tafelspitz</span><span class="beschreibung">In kräftiger Rindsuppe mit Wurzelgemüse gekocht, dazu Röstkartoffeln, Cremespinat, Schnittlauchsauce und Apfelkren.</span></li>
             </ul>
           </div>
           <div class="karte-gruppe">
-            <h3>Vegetarische Gerichte</h3>
+            <h3>Frisch &amp; Leicht</h3>
             <ul>
-              <li>Gnocchi in Tomatensauce mit Rucola und gegrilltem Schafskäse</li>
-              <li>Teigtaschen gefüllt mit Ricotta und Rucola in brauner Butter und buntem Gemüse</li>
+              <li><span class="gericht">Hühnerbrustwürfel vom Grill</span><span class="beschreibung">Auf buntem Blattsalat mit American Dressing, Toast und gegrillten Süßkartoffeln.</span></li>
+              <li><span class="gericht">Steirischer Backhendlsalat</span><span class="beschreibung">Knusprig gebackene Hühnerbruststreifen auf buntem Blattsalat, verfeinert mit steirischem Kürbiskernöl.</span></li>
             </ul>
           </div>
         </div>
         <div>
           <div class="karte-gruppe">
-            <h3>Aus der vitalen Küche</h3>
+            <h3>Fisch</h3>
             <ul>
-              <li>Hühnerbrustwürfel vom Grill auf buntem Blattsalat mit American Dressing, Toast und gegrillten Süßkartoffeln</li>
-              <li>Backhendlsalat, Hühnerbruststreifen auf buntem Blattsalat mit Kernöl</li>
+              <li><span class="gericht">Gebratene Forelle mit Knoblauch</span><span class="beschreibung">Serviert mit Petersilienkartoffeln.</span></li>
+              <li><span class="gericht">Goldbrassenfilet</span><span class="beschreibung">Auf Tomatennudeln mit Sardellen und frischem Rucola.</span></li>
+              <li><span class="gericht">Gegrillte Calamari vom Rost</span><span class="beschreibung">Mit Knoblauchbutter, Petersilienkartoffeln und Hausbrot.</span></li>
             </ul>
           </div>
           <div class="karte-gruppe">
-            <h3>Vom Grill</h3>
+            <h3>Köstliches vom Grill</h3>
             <ul>
-              <li>Schweinskotelett, Hühnerbrust und Schweinefilet mit Buttergemüse und Farmer Pommes</li>
-              <li>Beef Burger mit Speck und Cheddar, BBQ Sauce und Pommes frites</li>
+              <li><span class="gericht">Dreierlei vom Grill</span><span class="beschreibung">Schweinskotelett, Hühnerbrust und Schweinefilet mit Buttergemüse und Farmer Pommes.</span></li>
+              <li><span class="gericht">Hausspieß vom Grill</span><span class="beschreibung">Zartes Schweinefilet und Hühnerbrust auf kurz gebratenem Gemüse, mit Sweet-Chilisauce verfeinert. Dazu Ofenkartoffel mit Knoblauchsauce.</span></li>
             </ul>
           </div>
           <div class="karte-gruppe">
-            <h3>Hausgemachte Desserts</h3>
+            <h3>Vegetarische Köstlichkeiten</h3>
             <ul>
-              <li>Wechselnd, die Auswahl steht an der Tafel.</li>
+              <li><span class="gericht">Gnocchi in Tomatensauce</span><span class="beschreibung">Mit frischem Rucola und gegrilltem Schafskäse.</span></li>
+              <li><span class="gericht">Safranrisotto mit Schafsmilchkäse</span><span class="beschreibung">Verfeinert mit Nüssen, gebratenen Feigen und Gemüse.</span></li>
             </ul>
           </div>
         </div>
       </div>
 
-      <div class="teller">
-        <figure>
-          <img src="assets/img/backhendl.webp" width="760" height="507" loading="lazy"
-               alt="Panierte Hühnerteile mit grünen Bohnen und Risotto auf weißem Teller">
-          <figcaption>Backhendl, Samstag und Sonntag</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/img/burger.webp" width="760" height="507" loading="lazy"
-               alt="Burger mit Cheddar und Salat, dazu Pommes frites im Drahtkorb">
-          <figcaption>Burger, Montag</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/img/wild.webp" width="760" height="507" loading="lazy"
-               alt="Rosa gebratene Fleischmedaillons mit Püree und Süßkartoffelspalten">
-          <figcaption>Wild, September bis November</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/img/gnocchi.webp" width="760" height="507" loading="lazy"
-               alt="Gnocchi mit Kirschtomaten und Kräutern in tiefem weißem Teller">
-          <figcaption>Gnocchi, vegetarisch</figcaption>
-        </figure>
+      <div class="spezial" aria-labelledby="spezialTitel">
+        <div class="spezial-text">
+          <p class="marke">Vom Dorrer</p>
+          <h3 id="spezialTitel">Unsere Wirtshaus-Spezialitäten</h3>
+          <ul class="spezial-liste">
+            <li><span class="gericht">Steirisches Backhenderl</span><span class="beschreibung">Goldbraun und knusprig gebacken, ein echter Wirtshausklassiker.</span></li>
+            <li><span class="gericht">Dorrer Grillplatte</span> <span class="preis">€&nbsp;23,00 pro Person</span><span class="beschreibung">Eine reichhaltige Auswahl aus Mini-Cordon-bleu, knusprigen Backhendlstreifen, Grillkotelett und gegrillter Hühnerbrust. Dazu servieren wir Reis, Kartoffeln, Grillgemüse, Pommes frites und verschiedene Dipsaucen.</span></li>
+            <li><span class="gericht">Beef Burger</span><span class="beschreibung">Saftiges Rindfleisch mit knusprigem Speck, Cheddar und BBQ-Sauce, serviert mit Pommes frites.</span></li>
+          </ul>
+          <p class="spezial-montag"><strong>Jeden Montag ab 14 Uhr:</strong> Ripperl und Schnitzelburger.</p>
+        </div>
+        <div class="spezial-bilder">
+          <figure class="breit">
+            <img src="assets/img/backhenderl.webp" width="1600" height="793" loading="lazy" alt="Ein Korb voll goldbraun gebackenem Backhenderl mit Zitrone und Petersilie">
+            <figcaption>Steirisches Backhenderl</figcaption>
+          </figure>
+          <figure class="breit">
+            <img src="assets/img/grillplatte.webp" width="1600" height="592" loading="lazy" alt="Dorrer Grillplatte mit Backhendlstreifen, Hühnerbrust, Steaks, Kotelett, Schnitzel, Reis, Gemüse und Pommes frites">
+            <figcaption>Dorrer Grillplatte</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/img/burger-beef.webp" width="514" height="514" loading="lazy" alt="Beef Burger mit geschmolzenem Cheddar und Salat, dahinter Pommes frites">
+            <figcaption>Beef Burger</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/img/ripperl.webp" width="1048" height="510" loading="lazy" alt="Knusprige Ripperl auf dem Holzbrett mit BBQ-Sauce und Ofenkartoffel">
+            <figcaption>Ripperl, jeden Montag</figcaption>
+          </figure>
+        </div>
       </div>
 
       <div class="saison">
@@ -613,7 +648,7 @@ h1,h2,h3{overflow-wrap:break-word}
             <h4>Bärlauch und Frühlingsgemüse</h4>
           </li>
           <li class="saison-karte">
-            <div class="saison-bild saison-bild--figur" style="--saison-farbe:#e4ead3"><img src="assets/img/maskottchen.webp" width="681" height="884" loading="lazy" alt=""></div>
+            <div class="saison-bild"><img src="assets/img/saison-spargel.webp" width="720" height="900" loading="lazy" alt="Das Dorrer-Männchen mit einem großen Bund grünem und weißem Spargel"></div>
             <p class="saison-zeit">Mai und Juni</p>
             <h4>Spargel</h4>
           </li>
@@ -623,7 +658,7 @@ h1,h2,h3{overflow-wrap:break-word}
             <h4>Eierschwammerl und Pilze</h4>
           </li>
           <li class="saison-karte">
-            <div class="saison-bild saison-bild--figur" style="--saison-farbe:#f1dcc4"><img src="assets/img/maskottchen.webp" width="681" height="884" loading="lazy" alt=""></div>
+            <div class="saison-bild"><img src="assets/img/saison-grill.webp" width="720" height="900" loading="lazy" alt="Das Dorrer-Männchen als Koch am Grill mit Steaks in der Küche"></div>
             <p class="saison-zeit">August</p>
             <h4>Alles vom Grill</h4>
           </li>
@@ -799,7 +834,7 @@ h1,h2,h3{overflow-wrap:break-word}
         Mittwoch und Donnerstag Ruhetag</p>
     </div>
     <div>
-      <p style="margin:0 0 .4rem"><a href="chef-table.html">Chef's Table</a> &middot; <a href="biertanks.html">Biertanks</a></p>
+      <p style="margin:0 0 .4rem"><a href="eichenbar.html">Eichenbar</a> &middot; <a href="chef-table.html">Chef's Table</a> &middot; <a href="biertanks.html">Biertanks</a> &middot; <a href="feiern.html">Feiern</a> &middot; <a href="presse.html">Presse</a></p>
       <p style="margin:0 0 .4rem"><a href="impressum.html">Impressum</a> &middot; <a href="datenschutz.html">Datenschutz</a></p>
       <p style="margin:0">Alle Bildrechte liegen beim Gasthof Dorrer.</p>
     </div>

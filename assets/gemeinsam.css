@@ -1,0 +1,148 @@
+/* GASTHOF DORRER · Dunkles Farbschema für alle Seiten (Wunsch Gasthof, wie Biertanks).
+   Wird NACH dem Seiten-CSS geladen und überschreibt nur Farben. */
+:root{
+  --farbe-primaer:#e8c489;      /* Text-Akzent (Links, Überschriften-Marken) */
+  --farbe-rot:#6d1f28;          /* Weinrot für Flächen (Tagesmenü-Band) */
+  --farbe-akzent:#b98a4b;
+  --farbe-text:#eadfce;
+  --farbe-flaeche:#1d1512;
+  --farbe-flaeche-2:#251b17;
+  --farbe-dunkel:#120d0b;
+  --farbe-linie:#3a2c25;
+  --farbe-gedaempft:#b9a998;
+  color-scheme:dark;
+}
+body{background:var(--farbe-flaeche);color:var(--farbe-text)}
+h2{color:#f3d9a8}
+h3{color:#f6ead6}
+a{color:#e8c489}
+strong{color:#fff3e2}
+:focus-visible{outline-color:var(--farbe-akzent)}
+
+/* Kopf und Logo */
+.kopf{background:var(--farbe-flaeche);border-bottom-color:var(--farbe-linie)}
+.hauptnav a{color:var(--farbe-text)}
+.hauptnav a:hover,.hauptnav a:focus-visible,.hauptnav a[aria-current=page],.hauptnav a.aktiv{color:#e8c489}
+.wortmarke img{background:#f6f1e8;border-radius:6px;padding:4px 10px}
+.titel{background:#120d0b}
+
+/* Knöpfe */
+.knopf-voll{background:var(--farbe-akzent);color:#1d1512}
+.knopf-voll:hover{background:#cfa060}
+.knopf-linie{color:#e8c489;border-color:#5a4538}
+.knopf-linie:hover{border-color:#e8c489}
+
+/* Weiße Kästen auf dunkel umstellen */
+.hinweis,.tagesmenue-box,.bestaetigung,.fb-box,.sorten li{background:#251b17;color:var(--farbe-text)}
+.hinweis{color:#d6c7b3}
+.tagesmenue-box strong{color:#f3d9a8}
+.tagesmenue-band{background:var(--farbe-rot);color:#fff8f0}
+.fb-zustimmung p{color:var(--farbe-gedaempft)}
+.platzhalter{background:#4a3a22;color:#f3d9a8}
+.karte-gruppe h3,.karte-gruppe .preis,.urlaub-zeile,.jahr,.generationen .jahr,.saison-zeit,.marke{color:#e8c489}
+
+/* Formulare */
+.feld input,.feld select,.feld textarea,
+.res-form input,.res-form select,.res-form textarea{background:#2a1f1a;color:var(--farbe-text);border-color:#4a3a30}
+.res-form{background:var(--farbe-flaeche-2);color:var(--farbe-text)}
+.fehler,.res-form .fehler,.res-zustimmung.ungueltig{color:#ff9a8a}
+.feld.ungueltig input,.feld.ungueltig select{border-color:#ff9a8a}
+.res-zustimmung input{accent-color:var(--farbe-akzent)}
+
+/* Mobile Leiste */
+.mobilleiste{background:var(--farbe-dunkel);border-top-color:var(--farbe-linie)}
+.mobilleiste a:first-child{color:#e8c489}
+.mobilleiste a:last-child{background:var(--farbe-akzent);color:#1d1512}
+
+/* Hinweis-Popup */
+.hinweis-popup{background:rgba(0,0,0,.7)}
+.hinweis-popup__karte{background:#251b17;color:var(--farbe-text)}
+.hinweis-popup__marke{color:#e8c489}
+.hinweis-popup__titel{color:#fff}
+
+/* Fuß */
+.fuss{background:#120d0b}
+
+/* ---------- Navigation mit 8 Punkten ---------- */
+@media (min-width:860px) and (max-width:1099px){
+  .kopf-innen{flex-wrap:wrap;gap:.1rem 1.1rem;padding:.45rem 0}
+  .wortmarke{flex:0 0 100%;order:0}
+  .wortmarke img{height:50px}
+  .nav-a{order:1}.nav-b{order:2}
+}
+@media (min-width:1100px){.kopf-innen{gap:1.3rem}.hauptnav ul{gap:.2rem 1rem}}
+
+/* ---------- Unterseiten: Geschichte, Galerie, Video, Presse ---------- */
+.geschichte{max-width:68ch}
+.geschichte p{font-size:1.08rem}
+.leitsatz{font-family:var(--schrift-titel);font-size:clamp(1.3rem,3vw,1.8rem);line-height:1.3;color:#f3d9a8;border-left:4px solid var(--farbe-akzent);padding:.2rem 0 .2rem 1.2rem;margin:0 0 1rem;max-width:34ch}
+.stuecke{list-style:none;margin:0;padding:0;display:grid;gap:1.2rem}
+@media (min-width:760px){.stuecke{grid-template-columns:1fr 1fr}}
+.stuecke li{background:#251b17;border:1px solid var(--farbe-linie);border-top:3px solid var(--farbe-akzent);border-radius:4px;padding:1.2rem 1.3rem}
+.stuecke .generation{display:block;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--farbe-akzent);font-weight:600;margin-bottom:.3rem}
+.stuecke h3{font-size:1.2rem;margin-bottom:.5rem}
+.stuecke p{margin:0}
+.galerie{display:grid;gap:.8rem;grid-template-columns:1fr}
+@media (min-width:640px){.galerie{grid-template-columns:1fr 1fr}}
+.galerie figure img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:4px}
+.galerie .breit{grid-column:1/-1}
+.galerie .breit img{aspect-ratio:16/8}
+.unterschrift{font-family:var(--schrift-titel);color:#f3d9a8;margin-top:1.4rem}
+.unterschrift span{display:block;font-family:var(--schrift-text);font-size:.95rem;color:var(--farbe-gedaempft)}
+.punkte{margin:0 0 1.2rem;padding-left:1.2rem}
+.punkte li{margin:.25rem 0}
+.punkte li::marker{color:var(--farbe-akzent)}
+.eckzahlen{list-style:none;margin:1.4rem 0;padding:0;display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.eckzahlen li{border:1px solid var(--farbe-linie);border-radius:4px;padding:.9rem 1rem;background:#251b17}
+.eckzahlen strong{display:block;font-family:var(--schrift-titel);font-size:1.9rem;line-height:1;color:#f3d9a8;margin-bottom:.3rem}
+.eckzahlen span{font-size:.92rem;color:var(--farbe-gedaempft)}
+.hochkant{display:grid;gap:1.4rem;align-items:center}
+@media (min-width:820px){.hochkant{grid-template-columns:1fr 1fr;gap:3rem}}
+.hochvideo{position:relative;max-width:360px;margin:0 auto;border-radius:8px;overflow:hidden;background:#000;box-shadow:0 18px 50px rgba(0,0,0,.5)}
+.hochvideo video{display:block;width:100%;height:auto;aspect-ratio:9/16;object-fit:cover}
+.rocker{max-width:340px;margin:0 auto}
+.rocker img{aspect-ratio:auto;border-radius:6px}
+.presse-liste{list-style:none;margin:0;padding:0;display:grid;gap:1.4rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.presse-liste li{background:#251b17;border:1px solid var(--farbe-linie);border-radius:4px;overflow:hidden;display:flex;flex-direction:column}
+.presse-liste a.seite{display:block;background:#f4efe6;line-height:0}
+.presse-liste a.seite img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;border-radius:0;transition:opacity .2s ease}
+.presse-liste a.seite:hover img{opacity:.9}
+.presse-liste .text{padding:1rem 1.1rem 1.2rem}
+.presse-liste .jahr-marke{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--farbe-akzent);font-weight:600}
+.presse-liste h3{margin:.25rem 0 .4rem;font-size:1.15rem}
+.presse-liste p{margin:0;font-size:.95rem;color:var(--farbe-gedaempft)}
+.bildzoom{position:fixed;inset:0;z-index:120;background:rgba(0,0,0,.88);display:flex;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.bildzoom img{max-width:100%;max-height:100%;width:auto;height:auto;border-radius:2px;aspect-ratio:auto;object-fit:contain}
+.bildzoom[hidden]{display:none}
+.discovideo{max-width:760px;border-radius:6px;overflow:hidden;background:#000;box-shadow:0 18px 50px rgba(0,0,0,.45)}
+.discovideo video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+
+/* ---------- Küche (Startseite) ---------- */
+.karte-titel{font-size:1.25rem;margin:var(--abstand-l) 0 1rem;color:#f6ead6}
+.karte-gruppe li{padding:.45rem 0}
+.karte-gruppe .gericht{font-weight:600;color:#fff3e2}
+.karte-gruppe .beschreibung,.spezial-liste .beschreibung{display:block;font-size:.95rem;color:var(--farbe-gedaempft);line-height:1.5}
+.mitnehmen{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem 2rem;margin-top:var(--abstand-m);padding:1.2rem 1.4rem;border:1px solid var(--farbe-akzent);border-radius:6px;background:#251b17}
+.mitnehmen h3{margin:0 0 .2rem;font-size:1.25rem}
+.mitnehmen p{margin:0}
+.mitnehmen-marke{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--farbe-akzent);font-weight:600}
+.spezial{margin-top:var(--abstand-l);border:1px solid var(--farbe-akzent);border-radius:8px;overflow:hidden;background:#120d0b;display:grid}
+@media (min-width:900px){.spezial{grid-template-columns:1.1fr .9fr}}
+.spezial-text{padding:clamp(1.4rem,3vw,2.4rem)}
+.spezial-text h3{font-size:clamp(1.4rem,3vw,1.9rem);color:#f3d9a8;margin-bottom:1rem}
+.spezial-liste{list-style:none;margin:0;padding:0}
+.spezial-liste li{padding:.7rem 0;border-bottom:1px solid var(--farbe-linie)}
+.spezial-liste .gericht{font-family:var(--schrift-titel);font-weight:600;font-size:1.1rem;color:#fff3e2}
+.spezial-liste .preis{white-space:nowrap;font-weight:600;color:#e8c489;margin-left:.4rem}
+.spezial-montag{margin:1.1rem 0 0;padding:.7rem .9rem;border-left:4px solid var(--farbe-akzent);background:#251b17}
+.spezial-bilder{display:grid;gap:2px;grid-template-columns:1fr 1fr;align-content:stretch}
+@media (min-width:900px){.spezial-bilder{grid-template-columns:1fr}}
+.spezial-bilder figure{margin:0;min-height:0}
+.spezial-bilder img{width:100%;height:100%;aspect-ratio:3/2;object-fit:cover;border-radius:0}
+/* Spezialitäten: 4 Bilder */
+.spezial-bilder{grid-template-columns:1fr 1fr!important;gap:2px;align-content:start}
+.spezial-bilder figure{position:relative}
+.spezial-bilder .breit{grid-column:1/-1}
+.spezial-bilder img{aspect-ratio:1/1;height:auto}
+.spezial-bilder .breit img{aspect-ratio:2/1}
+.spezial-bilder figcaption{position:absolute;left:0;right:0;bottom:0;padding:1.4rem .8rem .5rem;background:linear-gradient(transparent,rgba(0,0,0,.75));color:#f6ead6;font-size:.85rem;font-weight:600}
