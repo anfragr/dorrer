@@ -1,5 +1,5 @@
 {
-  "aktualisiert": "",
+  "aktualisiert": "2026-11-12T08:11:15.326Z",
   "urlaub": {
     "aktiv": false,
     "von": "",
@@ -10,6 +10,10 @@
     "aktiv": false,
     "titel": "",
     "text": ""
+  },
+  "tagesmenue": {
+    "aktiv": true,
+    "text": "Montag, Dienstag und Freitag von 11:00 bis 14:00 Uhr"
   },
   "oeffnungszeiten": {
     "tage": {
@@ -63,7 +67,7 @@
         "kb": "20:00"
       }
     },
-    "zusatz": "An Feiertagen ist geöffnet."
+    "zusatz": "Feiertage außer Weihnachten geöffnet"
   },
   "speisekarte": {
     "einleitung": "Wir legen Wert auf Qualität, frische Zutaten und ehrlichen Geschmack. Vom knusprigen Backhendl bis zum feinen Safranrisotto ist für jeden Geschmack etwas dabei.",
@@ -198,9 +202,5 @@
       "text": "Englisches Bier in der Sammeldose."
     }
   ],
-  "facebook": "https://www.facebook.com/profile.php?id=100063646209319",
-  "tagesmenue": {
-    "aktiv": true,
-    "text": "Montag, Dienstag und Freitag von 11:00 bis 14:00 Uhr"
-  }
+  "facebook": "https://www.facebook.com/profile.php?id=100063646209319"
 }
