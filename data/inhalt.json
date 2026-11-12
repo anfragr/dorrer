@@ -70,7 +70,7 @@
     "pdf": false,
     "gruppen": [
       {
-        "titel": "Wirtshausklassiker",
+        "titel": "Klassiker aus unserer Küche",
         "gerichte": [
           {
             "name": "Wiener Schnitzel vom Schwein",
@@ -201,6 +201,6 @@
   "facebook": "https://www.facebook.com/profile.php?id=100063646209319",
   "tagesmenue": {
     "aktiv": true,
-    "text": "Dienstag, Mittwoch und Freitag von 11:00 bis 14:00 Uhr"
+    "text": "Montag, Dienstag und Freitag von 11:00 bis 14:00 Uhr"
   }
 }

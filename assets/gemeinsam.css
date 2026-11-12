@@ -160,3 +160,16 @@ strong{color:#fff3e2}
 .stationen li{padding:.55rem 0;border-bottom:1px solid var(--farbe-linie)}
 .stationen strong{display:block;color:#fff3e2}
 .stationen span{display:block;font-size:.92rem;color:var(--farbe-gedaempft)}
+/* Philosophie-Kasten (Startseite, Das Haus) */
+.philosophie{max-width:760px;margin:var(--abstand-l) auto 0;padding:clamp(1.6rem,4vw,2.6rem);border:1px solid var(--farbe-akzent);border-radius:8px;background:#120d0b;text-align:center;position:relative}
+.philosophie::before,.philosophie::after{content:'';position:absolute;inset:8px;border:1px solid rgba(185,138,75,.35);border-radius:5px;pointer-events:none}
+.philosophie::after{display:none}
+.philosophie h3{font-size:clamp(1.4rem,3.2vw,1.9rem);color:#f3d9a8;margin-bottom:1rem}
+.philosophie-spruch{margin:0 auto 1.2rem}
+.philosophie-spruch p{font-family:var(--schrift-titel);font-size:clamp(1.15rem,2.6vw,1.45rem);line-height:1.45;color:#fff3e2;margin:0}
+.philosophie > p:last-child{max-width:58ch;margin:0 auto;color:var(--farbe-text)}
+/* Dorrer FC (Feiern) */
+.dorrer-fc{margin-top:1.4rem;padding:1.2rem 1.3rem;border:1px solid var(--farbe-akzent);border-radius:6px;background:#251b17;text-align:left}
+.dorrer-fc h3{font-size:1.15rem;color:#f3d9a8;margin-bottom:.6rem;line-height:1.3}
+.dorrer-fc p{font-size:.98rem;margin:0 0 .8rem}
+.dorrer-fc-schluss{font-family:var(--schrift-titel);color:#fff3e2;margin:0!important}
